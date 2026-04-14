@@ -1,0 +1,3 @@
+- Better error messaging and user guidance in forms
+- Improved responsive grid layouts for large data tables
+- Introduced visual design tokens for spacing and typography

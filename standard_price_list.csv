@@ -1,0 +1,301 @@
+﻿Item Code,Item Name,Item Group Name,Service Type,UOM,Price
+100041,ABAYA,Gent & Ladies,Dry Cleaning,PCS,15.00
+100041,ABAYA,Gent & Ladies,Pressing Only,PCS,10.00
+100041,ABAYA,Gent & Ladies,Washing & Pressing,PCS,12.00
+100040,ABAYA SPECIAL,Gent & Ladies,Dry Cleaning,PCS,25.00
+100040,ABAYA SPECIAL,Gent & Ladies,Pressing Only,PCS,10.00
+100040,ABAYA SPECIAL,Gent & Ladies,Washing & Pressing,PCS,20.00
+100068,APRON,Gent & Ladies,Pressing Only,PCS,3.00
+100068,APRON,Gent & Ladies,Washing & Pressing,PCS,5.00
+100049,BATH ROBE,Gent & Ladies,Washing & Pressing,PCS,10.00
+100042,BISHT,Gent & Ladies,Dry Cleaning,PCS,40.00
+100042,BISHT,Gent & Ladies,Pressing Only,PCS,25.00
+100042,BISHT,Gent & Ladies,Washing & Pressing,PCS,40.00
+100168,BLOUSE (SPECIAL),Gent & Ladies,Dry Cleaning,PCS,10.00
+100168,BLOUSE (SPECIAL),Gent & Ladies,Pressing Only,PCS,4.00
+100168,BLOUSE (SPECIAL),Gent & Ladies,Washing & Pressing,PCS,8.00
+100114,BRA,Gent & Ladies,Dry Cleaning,PCS,2.00
+100114,BRA,Gent & Ladies,Washing & Pressing,PCS,2.00
+100012,CAP,Gent & Ladies,Dry Cleaning,PCS,2.00
+100012,CAP,Gent & Ladies,Washing & Pressing,PCS,2.00
+100013,DISHDASHA,Gent & Ladies,Dry Cleaning,PCS,10.00
+100013,DISHDASHA,Gent & Ladies,Pressing Only,PCS,4.00
+100013,DISHDASHA,Gent & Ladies,Washing & Pressing,PCS,6.00
+100160,DRESS - LONG,Gent & Ladies,Dry Cleaning,PCS,25.00
+100160,DRESS - LONG,Gent & Ladies,Pressing Only,PCS,15.00
+100160,DRESS - LONG,Gent & Ladies,Washing & Pressing,PCS,20.00
+100159,DRESS - SHORT,Gent & Ladies,Dry Cleaning,PCS,20.00
+100159,DRESS - SHORT,Gent & Ladies,Pressing Only,PCS,10.00
+100159,DRESS - SHORT,Gent & Ladies,Washing & Pressing,PCS,15.00
+100069,EPAULETTE,Gent & Ladies,Washing & Pressing,PCS,1.50
+100182,EVENING DRESS,Gent & Ladies,Dry Cleaning,PCS,0.00
+100182,EVENING DRESS,Gent & Ladies,Pressing Only,PCS,0.00
+100182,EVENING DRESS,Gent & Ladies,Washing & Pressing,PCS,0.00
+100034,GENTS SUIT (3 PCS),Gent & Ladies,Dry Cleaning,PCS,21.00
+100034,GENTS SUIT (3 PCS),Gent & Ladies,Pressing Only,PCS,12.00
+100034,GENTS SUIT (3 PCS),Gent & Ladies,Washing & Pressing,PCS,18.00
+100014,GHUTRA,Gent & Ladies,Dry Cleaning,PCS,5.00
+100014,GHUTRA,Gent & Ladies,Pressing Only,PCS,3.00
+100014,GHUTRA,Gent & Ladies,Washing & Pressing,PCS,4.00
+100096,HANKY,Gent & Ladies,Washing & Pressing,PCS,2.00
+100050,HIJAB,Gent & Ladies,Dry Cleaning,PCS,4.00
+100050,HIJAB,Gent & Ladies,Pressing Only,PCS,2.00
+100050,HIJAB,Gent & Ladies,Washing & Pressing,PCS,3.00
+100032,JACKET,Gent & Ladies,Dry Cleaning,PCS,14.00
+100032,JACKET,Gent & Ladies,Pressing Only,PCS,7.00
+100032,JACKET,Gent & Ladies,Washing & Pressing,PCS,12.00
+100204,JALABIYA,Gent & Ladies,Pressing Only,PCS,6.00
+100204,JALABIYA,Gent & Ladies,Washing & Pressing,PCS,10.00
+100132,KAMEEZ,Gent & Ladies,Dry Cleaning,PCS,6.00
+100132,KAMEEZ,Gent & Ladies,Pressing Only,PCS,4.00
+100132,KAMEEZ,Gent & Ladies,Washing & Pressing,PCS,5.00
+100134,KURTA,Gent & Ladies,Dry Cleaning,PCS,6.00
+100134,KURTA,Gent & Ladies,Pressing Only,PCS,4.00
+100134,KURTA,Gent & Ladies,Washing & Pressing,PCS,5.00
+100184,KURTA PYJAMA (SET),Gent & Ladies,Dry Cleaning,PCS,11.00
+100184,KURTA PYJAMA (SET),Gent & Ladies,Pressing Only,PCS,6.00
+100184,KURTA PYJAMA (SET),Gent & Ladies,Washing & Pressing,PCS,10.00
+100113,LAB COAT,Gent & Ladies,Dry Cleaning,PCS,10.00
+100113,LAB COAT,Gent & Ladies,Pressing Only,PCS,4.00
+100113,LAB COAT,Gent & Ladies,Washing & Pressing,PCS,8.00
+100203,LADIES SUIT (3PCS),Gent & Ladies,Dry Cleaning,PCS,21.00
+100203,LADIES SUIT (3PCS),Gent & Ladies,Pressing Only,PCS,12.00
+100203,LADIES SUIT (3PCS),Gent & Ladies,Washing & Pressing,PCS,18.00
+100185,LUNGI,Gent & Ladies,Dry Cleaning,PCS,10.00
+100185,LUNGI,Gent & Ladies,Pressing Only,PCS,4.00
+100185,LUNGI,Gent & Ladies,Washing & Pressing,PCS,8.00
+100051,MILITARY UNIFORM,Gent & Ladies,Dry Cleaning,PCS,16.00
+100051,MILITARY UNIFORM,Gent & Ladies,Pressing Only,PCS,9.00
+100051,MILITARY UNIFORM,Gent & Ladies,Washing & Pressing,PCS,14.00
+100015,OVERALL,Gent & Ladies,Dry Cleaning,PCS,10.00
+100015,OVERALL,Gent & Ladies,Pressing Only,PCS,6.00
+100015,OVERALL,Gent & Ladies,Washing & Pressing,PCS,8.00
+100016,OVERCOAT,Gent & Ladies,Dry Cleaning,PCS,23.00
+100016,OVERCOAT,Gent & Ladies,Pressing Only,PCS,11.00
+100016,OVERCOAT,Gent & Ladies,Washing & Pressing,PCS,13.00
+100045,PLEATED SKIRT,Gent & Ladies,Dry Cleaning,PCS,22.00
+100045,PLEATED SKIRT,Gent & Ladies,Pressing Only,PCS,10.00
+100045,PLEATED SKIRT,Gent & Ladies,Washing & Pressing,PCS,16.00
+100036,PULLOVER,Gent & Ladies,Dry Cleaning,PCS,8.00
+100036,PULLOVER,Gent & Ladies,Pressing Only,PCS,4.00
+100036,PULLOVER,Gent & Ladies,Washing & Pressing,PCS,6.00
+100198,PYJAMA NIGHT F/M (SET),Gent & Ladies,Dry Cleaning,PCS,10.00
+100198,PYJAMA NIGHT F/M (SET),Gent & Ladies,Pressing Only,PCS,4.00
+100198,PYJAMA NIGHT F/M (SET),Gent & Ladies,Washing & Pressing,PCS,7.00
+100133,PYJAMA TROUSER,Gent & Ladies,Dry Cleaning,PCS,5.00
+100133,PYJAMA TROUSER,Gent & Ladies,Pressing Only,PCS,3.00
+100133,PYJAMA TROUSER,Gent & Ladies,Washing & Pressing,PCS,5.00
+100066,REFLECTOR,Gent & Ladies,Pressing Only,PCS,2.00
+100066,REFLECTOR,Gent & Ladies,Washing & Pressing,PCS,4.00
+100035,SAFARI SUIT,Gent & Ladies,Dry Cleaning,PCS,13.00
+100035,SAFARI SUIT,Gent & Ladies,Pressing Only,PCS,8.00
+100035,SAFARI SUIT,Gent & Ladies,Washing & Pressing,PCS,11.00
+100048,SARI,Gent & Ladies,Dry Cleaning,PCS,15.00
+100048,SARI,Gent & Ladies,Pressing Only,PCS,10.00
+100048,SARI,Gent & Ladies,Washing & Pressing,PCS,12.00
+100194,SARI (SPECIAL),Gent & Ladies,Dry Cleaning,PCS,20.00
+100067,SCARF,Gent & Ladies,Dry Cleaning,PCS,4.00
+100067,SCARF,Gent & Ladies,Pressing Only,PCS,2.00
+100067,SCARF,Gent & Ladies,Washing & Pressing,PCS,3.00
+100196,SHAWL,Gent & Ladies,Dry Cleaning,PCS,10.00
+100058,SHEEP SKIN,Gent & Ladies,Dry Cleaning,PCS,40.00
+100058,SHEEP SKIN,Gent & Ladies,Washing & Pressing,PCS,40.00
+100007,SHIRT,Gent & Ladies,Dry Cleaning,PCS,6.00
+100007,SHIRT,Gent & Ladies,Pressing Only,PCS,3.00
+100007,SHIRT,Gent & Ladies,Washing & Pressing,PCS,5.00
+100575,SHOES SPORT,Gent & Ladies,Dry Cleaning,PCS,0.00
+100575,SHOES SPORT,Gent & Ladies,Washing & Pressing,PCS,0.00
+100018,SHORT,Gent & Ladies,Dry Cleaning,PCS,4.00
+100018,SHORT,Gent & Ladies,Pressing Only,PCS,3.00
+100018,SHORT,Gent & Ladies,Washing & Pressing,PCS,3.00
+100043,SILK BLOUSE,Gent & Ladies,Dry Cleaning,PCS,7.00
+100043,SILK BLOUSE,Gent & Ladies,Pressing Only,PCS,4.00
+100044,SKIRT L/S,Gent & Ladies,Dry Cleaning,PCS,8.00
+100044,SKIRT L/S,Gent & Ladies,Pressing Only,PCS,4.00
+100044,SKIRT L/S,Gent & Ladies,Washing & Pressing,PCS,6.00
+100020,SOCKS,Gent & Ladies,Dry Cleaning,PCS,2.00
+100020,SOCKS,Gent & Ladies,Washing & Pressing,PCS,2.00
+100197,SUIT MALE/FEMALE,Gent & Ladies,Dry Cleaning,PCS,20.00
+100197,SUIT MALE/FEMALE,Gent & Ladies,Pressing Only,PCS,10.00
+100197,SUIT MALE/FEMALE,Gent & Ladies,Washing & Pressing,PCS,13.00
+100071,SWEATER,Gent & Ladies,Dry Cleaning,PCS,8.00
+100071,SWEATER,Gent & Ladies,Pressing Only,PCS,4.00
+100071,SWEATER,Gent & Ladies,Washing & Pressing,PCS,6.00
+100024,T SHIRT,Gent & Ladies,Dry Cleaning,PCS,5.00
+100024,T SHIRT,Gent & Ladies,Pressing Only,PCS,2.00
+100024,T SHIRT,Gent & Ladies,Washing & Pressing,PCS,4.00
+100023,TIE,Gent & Ladies,Dry Cleaning,PCS,5.00
+100023,TIE,Gent & Ladies,Pressing Only,PCS,2.00
+100023,TIE,Gent & Ladies,Washing & Pressing,PCS,3.00
+100002,TROUSER,Gent & Ladies,Dry Cleaning,PCS,8.00
+100002,TROUSER,Gent & Ladies,Pressing Only,PCS,3.00
+100002,TROUSER,Gent & Ladies,Washing & Pressing,PCS,6.00
+100037,UNDERPANT,Gent & Ladies,Dry Cleaning,PCS,2.00
+100037,UNDERPANT,Gent & Ladies,Pressing Only,PCS,1.00
+100037,UNDERPANT,Gent & Ladies,Washing & Pressing,PCS,2.00
+100025,UNDERSHIRT,Gent & Ladies,Dry Cleaning,PCS,2.00
+100025,UNDERSHIRT,Gent & Ladies,Pressing Only,PCS,1.00
+100025,UNDERSHIRT,Gent & Ladies,Washing & Pressing,PCS,2.00
+100070,WAISTCOAT,Gent & Ladies,Dry Cleaning,PCS,6.00
+100070,WAISTCOAT,Gent & Ladies,Pressing Only,PCS,3.00
+100070,WAISTCOAT,Gent & Ladies,Washing & Pressing,PCS,5.00
+100200,WEDDING DRESS,Gent & Ladies,Dry Cleaning,PCS,0.00
+100200,WEDDING DRESS,Gent & Ladies,Pressing Only,PCS,0.00
+100200,WEDDING DRESS,Gent & Ladies,Washing & Pressing,PCS,0.00
+100130,WINTER JACKET,Gent & Ladies,Dry Cleaning,PCS,20.00
+100130,WINTER JACKET,Gent & Ladies,Pressing Only,PCS,8.00
+100130,WINTER JACKET,Gent & Ladies,Washing & Pressing,PCS,15.00
+100201,WINTER JACKET WITH HOOD,Gent & Ladies,Dry Cleaning,PCS,25.00
+100201,WINTER JACKET WITH HOOD,Gent & Ladies,Pressing Only,PCS,10.00
+100201,WINTER JACKET WITH HOOD,Gent & Ladies,Washing & Pressing,PCS,20.00
+100166,BACKPACK (MEDIUM),Household,Dry Cleaning,PCS,10.00
+100167,BACKPACK (SMALL),Household,Dry Cleaning,PCS,6.00
+100080,BATH MAT,Household,Washing & Pressing,PCS,5.00
+100125,BATH TOWEL,Household,Washing & Pressing,PCS,5.00
+100010,BED COVER DOUBLE,Household,Dry Cleaning,PCS,15.00
+100010,BED COVER DOUBLE,Household,Pressing Only,PCS,8.00
+100010,BED COVER DOUBLE,Household,Washing & Pressing,PCS,12.00
+100059,BED COVER SINGLE,Household,Dry Cleaning,PCS,12.00
+100059,BED COVER SINGLE,Household,Pressing Only,PCS,6.00
+100059,BED COVER SINGLE,Household,Washing & Pressing,PCS,10.00
+100052,BED SHEET (DOUBLE),Household,Dry Cleaning,PCS,8.00
+100052,BED SHEET (DOUBLE),Household,Pressing Only,PCS,4.00
+100052,BED SHEET (DOUBLE),Household,Washing & Pressing,PCS,6.00
+100060,BED SHEET (SINGLE),Household,Dry Cleaning,PCS,6.00
+100060,BED SHEET (SINGLE),Household,Pressing Only,PCS,3.00
+100060,BED SHEET (SINGLE),Household,Washing & Pressing,PCS,5.00
+100057,BLACK OUT CURTAIN LARGE,Household,Washing & Pressing,PCS,15.00
+100061,BLACK OUT CURTAIN SMALL,Household,Washing & Pressing,PCS,10.00
+100011,BLANKET DOUBLE,Household,Dry Cleaning,PCS,18.00
+100011,BLANKET DOUBLE,Household,Washing & Pressing,PCS,15.00
+100062,BLANKET SINGLE,Household,Dry Cleaning,PCS,15.00
+100062,BLANKET SINGLE,Household,Washing & Pressing,PCS,10.00
+100169,CAR COVER,Household,Washing & Pressing,PCS,40.00
+100208,CARPET,Household,Washing & Pressing,SQM,10.00
+100087,COMFORTER (DOUBLE),Household,Dry Cleaning,PCS,20.00
+100087,COMFORTER (DOUBLE),Household,Washing & Pressing,PCS,15.00
+100088,COMFORTER (SINGLE),Household,Dry Cleaning,PCS,12.00
+100088,COMFORTER (SINGLE),Household,Washing & Pressing,PCS,10.00
+100180,CURTAIN (BLACKOUT) XL,Household,Dry Cleaning,PCS,40.00
+100055,CURTAIN LARGE,Household,Dry Cleaning,PCS,25.00
+100055,CURTAIN LARGE,Household,Washing & Pressing,PCS,20.00
+100063,CURTAIN SMALL,Household,Dry Cleaning,PCS,20.00
+100063,CURTAIN SMALL,Household,Pressing Only,PCS,8.00
+100063,CURTAIN SMALL,Household,Washing & Pressing,PCS,15.00
+100205,CURTAIN XL,Household,Dry Cleaning,PCS,40.00
+100205,CURTAIN XL,Household,Washing & Pressing,PCS,30.00
+100089,CUSHION COVER (LARGE),Household,Dry Cleaning,PCS,12.00
+100089,CUSHION COVER (LARGE),Household,Washing & Pressing,PCS,8.00
+100138,CUSHION COVER (SMALL),Household,Dry Cleaning,PCS,5.00
+100138,CUSHION COVER (SMALL),Household,Washing & Pressing,PCS,4.00
+100181,DOOR MAT,Household,Washing & Pressing,PCS,8.00
+100139,DUVET FEATHER,Household,Dry Cleaning,PCS,40.00
+100139,DUVET FEATHER,Household,Washing & Pressing,PCS,35.00
+100140,DUVET WITH DESIGN,Household,Dry Cleaning,PCS,40.00
+100140,DUVET WITH DESIGN,Household,Washing & Pressing,PCS,35.00
+100095,HAND TOWEL,Household,Washing & Pressing,PCS,3.00
+100186,MAT (BIG),Household,Dry Cleaning,PCS,12.00
+100187,MATTRESS COVER (DOUBLE),Household,Dry Cleaning,PCS,15.00
+100188,MATTRESS PROTECTOR,Household,Dry Cleaning,PCS,10.00
+100188,MATTRESS PROTECTOR,Household,Washing & Pressing,PCS,10.00
+100126,NAPKIN,Household,Dry Cleaning,PCS,5.00
+100126,NAPKIN,Household,Washing & Pressing,PCS,3.00
+100056,NET CURTAIN,Household,Dry Cleaning,PCS,10.00
+100056,NET CURTAIN,Household,Pressing Only,PCS,6.00
+100056,NET CURTAIN,Household,Washing & Pressing,PCS,8.00
+100189,PILLOW (NECK),Household,Washing & Pressing,PCS,5.00
+100053,PILLOW CASE,Household,Dry Cleaning,PCS,3.00
+100053,PILLOW CASE,Household,Pressing Only,PCS,1.00
+100053,PILLOW CASE,Household,Washing & Pressing,PCS,2.00
+100106,PILLOW FEATHER (LARGE),Household,Dry Cleaning,PCS,20.00
+100106,PILLOW FEATHER (LARGE),Household,Washing & Pressing,PCS,15.00
+100105,PILLOW FEATHER (SMALL),Household,Dry Cleaning,PCS,15.00
+100105,PILLOW FEATHER (SMALL),Household,Washing & Pressing,PCS,10.00
+100108,PILLOW NORMAL (LARGE),Household,Washing & Pressing,PCS,15.00
+100107,PILLOW NORMAL (SMALL),Household,Washing & Pressing,PCS,10.00
+100190,PRAYING MAT,Household,Washing & Pressing,PCS,6.00
+100110,QUILT COVER (DOUBLE),Household,Dry Cleaning,PCS,12.00
+100110,QUILT COVER (DOUBLE),Household,Pressing Only,PCS,6.00
+100110,QUILT COVER (DOUBLE),Household,Washing & Pressing,PCS,10.00
+100109,QUILT COVER (SINGLE),Household,Dry Cleaning,PCS,10.00
+100109,QUILT COVER (SINGLE),Household,Pressing Only,PCS,6.00
+100109,QUILT COVER (SINGLE),Household,Washing & Pressing,PCS,8.00
+100017,QUILT DOUBLE,Household,Dry Cleaning,PCS,20.00
+100017,QUILT DOUBLE,Household,Washing & Pressing,PCS,15.00
+100064,QUILT SINGLE,Household,Dry Cleaning,PCS,18.00
+100064,QUILT SINGLE,Household,Washing & Pressing,PCS,12.00
+100137,SOFA COVER (LARGE),Household,Dry Cleaning,PCS,12.00
+100137,SOFA COVER (LARGE),Household,Washing & Pressing,PCS,12.00
+100136,SOFA COVER (MEDIUM),Household,Dry Cleaning,PCS,8.00
+100136,SOFA COVER (MEDIUM),Household,Washing & Pressing,PCS,6.00
+100135,SOFA COVER (SMALL),Household,Dry Cleaning,PCS,5.00
+100135,SOFA COVER (SMALL),Household,Washing & Pressing,PCS,4.00
+100129,TABLE CLOTH (LARGE),Household,Washing & Pressing,PCS,8.00
+100128,TABLE CLOTH (MEDIUM),Household,Washing & Pressing,PCS,6.00
+100127,TABLE CLOTH (SMALL),Household,Washing & Pressing,PCS,4.00
+101253,TABLES CLOTH X-LARGE,Household,Washing & Pressing,PCS,15.00
+100054,TOWEL LARGE,Household,Dry Cleaning,PCS,7.00
+100054,TOWEL LARGE,Household,Pressing Only,PCS,3.00
+100054,TOWEL LARGE,Household,Washing & Pressing,PCS,6.00
+100065,TOWEL SMALL,Household,Dry Cleaning,PCS,6.00
+100065,TOWEL SMALL,Household,Pressing Only,PCS,2.00
+100065,TOWEL SMALL,Household,Washing & Pressing,PCS,5.00
+100202,YOGA MAT,Household,Washing & Pressing,PCS,10.00
+100170,CHILD ABAYA,Kids,Dry Cleaning,PCS,7.00
+100170,CHILD ABAYA,Kids,Pressing Only,PCS,3.00
+100170,CHILD ABAYA,Kids,Washing & Pressing,PCS,5.00
+100171,CHILD DISHDASHA,Kids,Dry Cleaning,PCS,5.00
+100171,CHILD DISHDASHA,Kids,Pressing Only,PCS,2.00
+100171,CHILD DISHDASHA,Kids,Washing & Pressing,PCS,3.00
+100172,CHILD DRESS,Kids,Dry Cleaning,PCS,13.00
+100172,CHILD DRESS,Kids,Pressing Only,PCS,6.00
+100172,CHILD DRESS,Kids,Washing & Pressing,PCS,10.00
+100173,CHILD JACKET,Kids,Dry Cleaning,PCS,7.00
+100173,CHILD JACKET,Kids,Pressing Only,PCS,4.00
+100173,CHILD JACKET,Kids,Washing & Pressing,PCS,6.00
+100174,CHILD SHIRT,Kids,Dry Cleaning,PCS,3.00
+100174,CHILD SHIRT,Kids,Pressing Only,PCS,1.00
+100174,CHILD SHIRT,Kids,Washing & Pressing,PCS,3.00
+100175,CHILD SHORT,Kids,Dry Cleaning,PCS,2.00
+100175,CHILD SHORT,Kids,Pressing Only,PCS,1.00
+100175,CHILD SHORT,Kids,Washing & Pressing,PCS,2.00
+100176,CHILD SUIT,Kids,Dry Cleaning,PCS,8.00
+100176,CHILD SUIT,Kids,Pressing Only,PCS,4.00
+100176,CHILD SUIT,Kids,Washing & Pressing,PCS,6.00
+100177,CHILD SUIT (3 PCS),Kids,Dry Cleaning,PCS,10.00
+100177,CHILD SUIT (3 PCS),Kids,Pressing Only,PCS,6.00
+100177,CHILD SUIT (3 PCS),Kids,Washing & Pressing,PCS,8.00
+100178,CHILD TROUSER,Kids,Dry Cleaning,PCS,4.00
+100178,CHILD TROUSER,Kids,Pressing Only,PCS,2.00
+100178,CHILD TROUSER,Kids,Washing & Pressing,PCS,3.00
+100179,CHILD T-SHIRT,Kids,Dry Cleaning,PCS,2.00
+100179,CHILD T-SHIRT,Kids,Pressing Only,PCS,1.00
+100179,CHILD T-SHIRT,Kids,Washing & Pressing,PCS,2.00
+100195,SCHOOL UNIFORM (SET),Kids,Washing & Pressing,PCS,8.00
+101206,BEAN BAG,Others,Dry Cleaning,PCS,0.00
+101565,BULLETPROOF VEST,Others,Washing & Pressing,PCS,20.00
+100123,HAND BAG (LARGE),Others,Dry Cleaning,PCS,15.00
+100122,HAND BAG (SMALL),Others,Dry Cleaning,PCS,10.00
+100094,HAND GLOVES,Others,Dry Cleaning,PCS,8.00
+100074,OTHER,Others,Dry Cleaning,PCS,0.00
+100074,OTHER,Others,Pressing Only,PCS,0.00
+100074,OTHER,Others,Washing & Pressing,PCS,0.00
+100193,QATAR FLAG (LARGE),Others,Washing & Pressing,PCS,20.00
+100192,QATAR FLAG (MEDIUM),Others,Washing & Pressing,PCS,15.00
+100191,QATAR FLAG (SMALL),Others,Washing & Pressing,PCS,10.00
+100206,QATAR FLAG (XL),Others,Washing & Pressing,PCS,40.00
+100958,RANDOM,Others,Washing & Pressing,PCS,0.00
+101205,STUFFED TOY,Others,Dry Cleaning,PCS,0.00
+101205,STUFFED TOY,Others,Pressing Only,PCS,0.00
+101205,STUFFED TOY,Others,Washing & Pressing,PCS,0.00
+100102,STUFFED TOY (LARGE),Others,Dry Cleaning,PCS,12.00
+100104,STUFFED TOY (SMALL),Others,Dry Cleaning,PCS,6.00
+100207,STUFFED TOY (XL),Others,Dry Cleaning,PCS,0.00
+100207,STUFFED TOY (XL),Others,Pressing Only,PCS,0.00
+100207,STUFFED TOY (XL),Others,Washing & Pressing,PCS,0.00
+100120,SUITCASE (LARGE),Others,Dry Cleaning,PCS,15.00
+100121,SUITCASE (SMALL),Others,Dry Cleaning,PCS,10.00
+100211,TAILORING,Others,Dry Cleaning,PCS,0.00
+100211,TAILORING,Others,Pressing Only,PCS,0.00
+100211,TAILORING,Others,Washing & Pressing,PCS,0.00
+,,,,,

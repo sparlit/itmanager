@@ -1,0 +1,4 @@
+- Improved error handling in UI actions with user-facing messages
+- Refined responsive layout for mobile and desktop
+- Added table borders and overflow handling for clarity
+- Introduced a small internal design system for consistent spacing

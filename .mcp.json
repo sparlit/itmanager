@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"],
+      "description": "Provides real-time Next.js app state and error analysis"
+    },
+    "prisma": {
+      "command": "npx",
+      "args": ["-y", "@prisma/mcp-server"],
+      "description": "Allows agents to query database schema and run migrations"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Maintains persistent context across different chat sessions"
+    }
+  }
+}

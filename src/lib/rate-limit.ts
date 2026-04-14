@@ -1,0 +1,40 @@
+import { NextRequest, NextResponse } from "next/server";
+import { logger } from "./logger";
+
+const rateLimit = new Map<string, { count: number; resetAt: number }>();
+
+const DEFAULT_LIMIT = 100;
+const WINDOW_MS = 60 * 1000; // 1 minute
+
+const AUTH_LIMIT = 10;
+const AUTH_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+
+export function rateLimitMiddleware(req: NextRequest, limit = DEFAULT_LIMIT, windowMs = WINDOW_MS): NextResponse | null {
+  const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
+  const key = `${ip}:${req.nextUrl.pathname}`;
+  const now = Date.now();
+
+  const entry = rateLimit.get(key);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimit.set(key, { count: 1, resetAt: now + windowMs });
+    return null;
+  }
+
+  entry.count += 1;
+
+  if (entry.count > limit) {
+    logger.warn({ ip, path: req.nextUrl.pathname, count: entry.count }, 'Rate limit exceeded');
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil((entry.resetAt - now) / 1000)) } }
+    );
+  }
+
+  return null;
+}
+
+// Auth-specific rate limiter (stricter)
+export function authRateLimitMiddleware(req: NextRequest): NextResponse | null {
+  return rateLimitMiddleware(req, AUTH_LIMIT, AUTH_WINDOW_MS);
+}

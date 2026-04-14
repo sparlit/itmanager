@@ -1,0 +1,3 @@
+- Improved error handling with user-friendly messages
+- Refined grid/table layouts for large datasets
+- Added a lightweight design system guide for spacing and typography

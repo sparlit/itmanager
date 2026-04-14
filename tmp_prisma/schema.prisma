@@ -1,0 +1,519 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Staff {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  phone       String?
+  department  String   @default("IT")
+  role        String   @default("Staff")
+  avatar      String?
+  status      String   @default("Active")
+  joinDate    DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  reportedTickets       Ticket[]            @relation("Reporter")
+  assignedTickets       Ticket[]            @relation("Assignee")
+  assetAssignments      AssetAssignment[]
+  licenseAssignments    LicenseAssignment[]
+  changeRequests        ChangeRequest[]     @relation("ChangeRequester")
+  approvedChanges       ChangeRequest[]     @relation("ChangeApprover")
+  timeEntries           TimeEntry[]
+}
+
+model Asset {
+  id           String   @id @default(cuid())
+  name         String
+  serialNumber String   @unique
+  category     String
+  status       String   @default("Available")
+  condition    String   @default("Good")
+  purchaseDate DateTime?
+  purchaseCost Float?
+  warrantyEnd  DateTime?
+  vendor       String?
+  location     String?
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  assignments AssetAssignment[]
+  maintenance MaintenanceRecord[]
+
+  @@index([status])
+  @@index([category])
+  @@index([warrantyEnd])
+}
+
+model AssetAssignment {
+  id         String    @id @default(cuid())
+  assetId    String
+  staffId    String
+  assignedAt DateTime  @default(now())
+  returnedAt DateTime?
+  notes      String?
+  createdAt  DateTime  @default(now())
+
+  asset Asset @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  staff Staff @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  @@index([staffId])
+  @@index([assetId])
+  @@index([returnedAt])
+}
+
+model MaintenanceRecord {
+  id          String   @id @default(cuid())
+  assetId     String
+  type        String
+  description String
+  performedBy String
+  performedAt DateTime @default(now())
+  cost        Float?
+  createdAt   DateTime @default(now())
+
+  asset Asset @relation(fields: [assetId], references: [id], onDelete: Cascade)
+}
+
+model InventoryItem {
+  id            String    @id @default(cuid())
+  name          String
+  category      String
+  sku           String    @unique
+  barcode       String?
+  quantity      Int       @default(0)
+  reservedQty   Int       @default(0)
+  minStockLevel Int       @default(5)
+  maxStockLevel Int?
+  reorderQty    Int?
+  unitPrice     Float?
+  unitCost      Float?
+  supplier      String?
+  location      String?
+  binLocation   String?
+  lastRestocked DateTime?
+  expiryDate    DateTime?
+  isActive      Boolean   @default(true)
+  deletedAt     DateTime?
+  notes         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  transactions InventoryTransaction[]
+
+  @@index([category])
+  @@index([sku])
+  @@index([isActive])
+  @@index([deletedAt])
+}
+
+model TransactionBatch {
+  id                String   @id @default(cuid())
+  batchNumber       String   @unique
+  type              String
+  transactionDate   String   @default("")
+  transactionTime   String   @default("")
+  requestedBy       String   @default("")
+  department        String   @default("")
+  authorisedBy      String   @default("")
+  fromLocation      String   @default("")
+  toLocation        String   @default("")
+  supplierRef       String   @default("")
+  deliveryNote      String   @default("")
+  purpose           String   @default("")
+  notes             String   @default("")
+  totalItems        Int      @default(0)
+  totalValue        Float    @default(0)
+  status            String   @default("Completed")
+  createdAt         DateTime @default(now())
+
+  transactions InventoryTransaction[]
+
+  @@index([status])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model InventoryTransaction {
+  id                  String              @id @default(cuid())
+  itemId              String
+  batchId             String?
+  type                String
+  quantity            Int
+  performedBy         String
+  notes               String?
+  referenceNo         String              @default("")
+  fromLocation        String              @default("")
+  toLocation          String              @default("")
+  issuedTo            String              @default("")
+  issuedToDepartment  String              @default("")
+  supplierRef         String              @default("")
+  deliveryNote        String              @default("")
+  purpose             String              @default("")
+  transactionNumber   String              @default("")
+  transactionDate     String              @default("")
+  transactionTime     String              @default("")
+  requestedBy         String              @default("")
+  authorisedBy        String              @default("")
+  itemCode            String              @default("")
+  itemDescription     String              @default("")
+  unitPrice           Float               @default(0)
+  totalValue          Float               @default(0)
+  createdAt           DateTime            @default(now())
+
+  item   InventoryItem   @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  batch  TransactionBatch? @relation(fields: [batchId], references: [id], onDelete: SetNull)
+
+  @@index([itemId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model Ticket {
+  id                      String          @id @default(cuid())
+  title                   String
+  description             String
+  status                  String          @default("Open")
+  priority                String          @default("Medium")
+  category                String
+  reportedBy              String?
+  reportedByName          String          @default("")
+  reportedFromDepartment  String          @default("")
+  reportDate              String          @default("")
+  reportTime              String          @default("")
+  assignedTo              String?
+  assignedToName          String?
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
+  resolvedAt              DateTime?
+  closedAt                DateTime?
+
+  reporter Staff?   @relation("Reporter", fields: [reportedBy], references: [id])
+  assignee Staff?  @relation("Assignee", fields: [assignedTo], references: [id])
+  comments TicketComment[]
+  timeEntries TimeEntry[]
+
+  @@index([status])
+  @@index([assignedTo])
+  @@index([priority])
+  @@index([category])
+  @@index([createdAt])
+}
+
+model TicketComment {
+  id         String   @id @default(cuid())
+  ticketId   String
+  authorId   String
+  authorName String
+  content    String
+  isInternal Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+}
+
+model Vendor {
+  id            String   @id @default(cuid())
+  name          String
+  contactPerson String   @default("")
+  email         String   @default("")
+  phone         String   @default("")
+  website       String   @default("")
+  address       String   @default("")
+  contractStart DateTime?
+  contractEnd   DateTime?
+  rating        Int      @default(0)
+  category      String   @default("General")
+  status        String   @default("Active")
+  notes         String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model KnowledgeBaseArticle {
+  id          String   @id @default(cuid())
+  title       String
+  content     String   @default("")
+  category    String   @default("General")
+  tags        String   @default("")
+  author      String   @default("")
+  status      String   @default("Published")
+  views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NEW ENHANCED MODELS
+// ═══════════════════════════════════════════════════════════════
+
+// ── Software License Management ────────────────────────────────
+model SoftwareLicense {
+  id            String   @id @default(cuid())
+  name          String
+  vendor        String
+  licenseKey    String   @default("")
+  licenseType   String   @default("Perpetual")
+  totalSeats    Int      @default(1)
+  usedSeats     Int      @default(0)
+  purchaseDate  DateTime?
+  expiryDate    DateTime?
+  autoRenew     Boolean  @default(false)
+  cost          Float?
+  status        String   @default("Active")
+  category      String   @default("Software")
+  assignedTo    String   @default("")
+  notes         String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  assignments   LicenseAssignment[]
+  auditLogs     AuditLog[]
+
+  @@index([status])
+  @@index([category])
+  @@index([expiryDate])
+  @@index([vendor])
+}
+
+model LicenseAssignment {
+  id          String   @id @default(cuid())
+  licenseId   String
+  staffId     String
+  assignedAt  DateTime @default(now())
+  returnedAt  DateTime?
+  notes       String?
+
+  license     SoftwareLicense @relation(fields: [licenseId], references: [id], onDelete: Cascade)
+  staff       Staff           @relation(fields: [staffId], references: [id], onDelete: Cascade)
+
+  @@index([staffId])
+  @@index([licenseId])
+}
+
+// ── Change Management ──────────────────────────────────────────
+model ChangeRequest {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  changeType      String   @default("Standard")
+  priority        String   @default("Medium")
+  status          String   @default("Draft")
+  riskLevel       String   @default("Low")
+  reason          String   @default("")
+  implementationPlan String @default("")
+  rollbackPlan    String   @default("")
+  impactAnalysis  String   @default("")
+  requestedBy     String?
+  requestedByName String   @default("")
+  approvedBy      String?
+  approvedByName  String?
+  approvedAt      DateTime?
+  scheduledStart  DateTime?
+  scheduledEnd    DateTime?
+  completedAt     DateTime?
+  category        String   @default("Infrastructure")
+  affectedAssets  String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  requester       Staff?          @relation("ChangeRequester", fields: [requestedBy], references: [id])
+  approver        Staff?          @relation("ChangeApprover", fields: [approvedBy], references: [id])
+  comments        ChangeComment[]
+  auditLogs       AuditLog[]
+
+  @@index([status])
+  @@index([priority])
+  @@index([changeType])
+  @@index([createdAt])
+}
+
+model ChangeComment {
+  id         String   @id @default(cuid())
+  changeId   String
+  authorId   String
+  authorName String
+  content    String
+  createdAt  DateTime @default(now())
+
+  change     ChangeRequest @relation(fields: [changeId], references: [id], onDelete: Cascade)
+}
+
+// ── Time Tracking ──────────────────────────────────────────────
+model TimeEntry {
+  id          String   @id @default(cuid())
+  ticketId    String?
+  staffId     String?
+  staffName   String   @default("")
+  description String
+  startTime   DateTime
+  endTime     DateTime?
+  duration    Float?
+  billable    Boolean  @default(false)
+  category    String   @default("Work")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  ticket      Ticket?  @relation(fields: [ticketId], references: [id], onDelete: SetNull)
+  staff       Staff?   @relation(fields: [staffId], references: [id], onDelete: SetNull)
+
+  @@index([staffId])
+  @@index([ticketId])
+  @@index([createdAt])
+}
+
+// ── Audit Log ──────────────────────────────────────────────────
+model AuditLog {
+  id          String   @id @default(cuid())
+  action      String
+  entity      String
+  entityId    String
+  userId      String?
+  userName    String   @default("")
+  details     String   @default("")
+  oldValue    String   @default("")
+  newValue    String   @default("")
+  ipAddress   String   @default("")
+  createdAt   DateTime @default(now())
+
+  licenseId   String?
+  changeId    String?
+
+  license     SoftwareLicense? @relation(fields: [licenseId], references: [id])
+  change      ChangeRequest?   @relation(fields: [changeId], references: [id])
+
+  @@index([entity])
+  @@index([entityId])
+  @@index([createdAt])
+  @@index([action])
+}
+
+// ── SLA Policy ─────────────────────────────────────────────────
+model SLAPolicy {
+  id              String   @id @default(cuid())
+  name            String
+  description     String   @default("")
+  category        String   @default("All")
+  priority        String   @default("All")
+  responseTime    Int      @default(60)
+  resolutionTime  Int      @default(480)
+  escalationTime  Int      @default(240)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ── Service Catalog ────────────────────────────────────────────
+model ServiceCatalog {
+  id            String   @id @default(cuid())
+  name          String
+  description   String
+  category      String   @default("General")
+  icon          String   @default("Package")
+  status        String   @default("Active")
+  estimatedTime String   @default("")
+  approvalRequired Boolean @default(false)
+  formFields    String   @default("")
+  sortOrder     Int      @default(0)
+  views         Int      @default(0)
+  requests      Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ── File Attachments ───────────────────────────────────────────
+model Attachment {
+  id          String   @id @default(cuid())
+  fileName    String
+  originalName String
+  mimeType    String
+  size        Int
+  path        String
+  entityType  String
+  entityId    String
+  uploadedBy  String   @default("")
+  uploadedByName String @default("")
+  createdAt   DateTime @default(now())
+}
+
+// ── Notifications ──────────────────────────────────────────────
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  userName    String   @default("")
+  title       String
+  message     String
+  type        String   @default("info")
+  isRead      Boolean  @default(false)
+  link        String   @default("")
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([isRead])
+  @@index([createdAt])
+}
+
+// ── Budget / Cost Center ───────────────────────────────────────
+model Budget {
+  id            String   @id @default(cuid())
+  name          String
+  department    String
+  fiscalYear    Int
+  totalBudget   Float    @default(0)
+  spent         Float    @default(0)
+  category      String   @default("General")
+  startDate     DateTime
+  endDate       DateTime
+  status        String   @default("Active")
+  notes         String   @default("")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ── Backup Record ──────────────────────────────────────────────
+model BackupRecord {
+  id            String   @id @default(cuid())
+  name          String
+  type          String   @default("Manual")
+  status        String   @default("Pending")
+  size          Float?
+  location      String   @default("")
+  startedAt     DateTime @default(now())
+  completedAt   DateTime?
+  duration      Float?
+  notes         String   @default("")
+  createdAt     DateTime @default(now())
+}
+
+// ── User Authentication ────────────────────────────────────────
+model User {
+  id            String   @id @default(cuid())
+  username      String   @unique
+  email         String   @unique
+  passwordHash  String
+  name          String
+  role          String   @default("user")
+  isActive      Boolean  @default(true)
+  lastLogin     DateTime?
+  failedAttempts Int     @default(0)
+  lockedUntil   DateTime?
+  language      String   @default("en")
+  timezone      String   @default("UTC")
+  dateFormat    String   @default("MM/DD/YYYY")
+  compactMode   Boolean  @default(false)
+  autoRefresh   Boolean  @default(true)
+  refreshInterval Int    @default(30)
+  showAnimations Boolean  @default(true)
+  theme         String   @default("system")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+

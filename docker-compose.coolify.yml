@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  coolify:
+    image: coolify/coolify:latest
+    container_name: itmanager-coolify
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_KEY=base64:your-secret-key-here-change-in-production
+      - DB_HOST=host.docker.internal
+      - DB_PORT=5432
+      - DB_DATABASE=coolify
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=your-db-password
+      - REDIS_HOST=host.docker.internal
+      - REDIS_PORT=6379
+    volumes:
+      - coolify_data:/data
+    restart: unless-stopped
+
+volumes:
+  coolify_data:
+    driver: local

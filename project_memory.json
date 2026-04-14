@@ -1,0 +1,102 @@
+{
+    "project_name": "Ultimate IT & Operations Suite",
+    "version": "1.2.0",
+    "status": "Expanding to Multi-Vertical Management",
+    "tech_stack": {
+        "framework": "Next.js 16.2.2 (Turbopack)",
+        "language": "TypeScript 5.x",
+        "styling": "Tailwind CSS v4 + Framer Motion (for marvelous UI)",
+        "components": "Shadcn UI + Lucide Icons",
+        "database": "PostgreSQL",
+        "real_time": "WebSockets/Socket.io"
+    },
+    "active_modules": [
+        {
+            "name": "Command Center",
+            "description": "Bento-grid landing page for cross-app navigation",
+            "status": "Building"
+        },
+        {
+            "name": "IT Service Desk",
+            "description": "Kanban + WebSocket enabled ticketing",
+            "status": "Schema Ready"
+        },
+        {
+            "name": "Asset & Inventory",
+            "description": "Lifecycle and Audit tracking",
+            "status": "Schema Ready"
+        },
+        {
+            "name": "Laundry Management",
+            "description": "Pickup, multi-level processing, and payments",
+            "status": "Initial Design"
+        }
+    ],
+    "database": {
+        "provider": "postgresql",
+        "models_count": 25,
+        "tables": [
+            "User", "Staff", "Customer", "Ticket", "Comment", "Attachment",
+            "Asset", "MaintenanceRecord", "Vendor", "Inventory", "InventoryTransaction",
+            "License", "Backup", "ChangeRequest", "Notification", "KnowledgeBase",
+            "ServiceCatalog", "Announcement", "AuditLog", "Budget", "CalendarEvent", "SLAPolicy"
+        ]
+    },
+    "directory_structure": {
+        "app": "Routes and pages (Next.js App Router)",
+        "components": "Reusable UI components",
+        "hooks": "Custom React hooks",
+        "store": "State management",
+        "lib": "Utilities and database client",
+        "prisma": "Database schema and migrations"
+    },
+    "modules": [
+        {
+            "name": "Ticket Management",
+            "features": ["Kanban Board", "SLA Tracking", "WebSocket Support", "Rich Text Editor", "Comments & Attachments"],
+            "status": "Built",
+            "path": "src/components/tickets/tickets-view.tsx",
+            "api": "src/app/api/tickets/route.ts"
+        },
+        {
+            "name": "Asset & Inventory",
+            "features": ["Lifecycle Tracking", "Audit Logs", "License Management", "Vendor Management"],
+            "status": "Built",
+            "api_routes": ["assets", "inventory", "vendors", "licenses"]
+        },
+        {
+            "name": "Knowledge Base",
+            "features": ["Articles", "Categories", "Tags", "Search"],
+            "status": "Built",
+            "api": "src/app/api/knowledge-base/route.ts"
+        },
+        {
+            "name": "SOP & Governance",
+            "features": ["Announcements", "Calendar", "Notifications", "Audit Logs"],
+            "status": "Built",
+            "api_routes": ["announcements", "calendar", "notifications", "audit"]
+        }
+    ],
+    "components_created": [
+        "use-api.ts - API fetching with SSE",
+        "use-websocket.ts - WebSocket + BroadcastChannel",
+        "rich-text-editor.tsx - ContentEditable formatting",
+        "document-upload.tsx - Drag-drop file upload",
+        "workflow-engine.tsx - Approval workflows",
+        "advanced-search.tsx - Filter fields + export",
+        "analytics.tsx - KPI cards, charts",
+        "bulk-selection.tsx - Multi-select actions",
+        "tickets-view.tsx - List + Kanban drag-drop"
+    ],
+    "api_routes": [
+        "/api/auth/login",
+        "/api/auth/logout",
+        "/api/tickets",
+        "/api/assets",
+        "/api/inventory",
+        "/api/vendors",
+        "/api/users"
+    ],
+    "current_focus": "Developing the high-impact Landing Page shell and multi-application router.",
+    "last_updated": "2026-04-13T14:15:00Z"
+}

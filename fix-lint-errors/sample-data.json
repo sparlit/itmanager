@@ -1,0 +1,9 @@
+{
+  "staff": [
+    {"id": "s1", "name": "Alice Admin", "role": "IT Manager", "department": "IT"}
+  ],
+  "assets": [
+    {"id": "a1", "name": "Laptop A1", "status": "Available"}
+  ],
+  "tickets": []
+}

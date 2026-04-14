@@ -1,0 +1,19 @@
+{
+  "name": "internal-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3004",
+    "build": "next build",
+    "start": "next start -p 3004"
+  },
+  "devDependencies": {
+    "@prisma/client": "4.16.1",
+    "prisma": "4.16.1"
+  },
+  "dependencies": {
+    "next": "^16.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
