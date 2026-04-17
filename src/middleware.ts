@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { verifyAuthToken } from "@/lib/auth-token";
+import { verifyToken } from "@/lib/auth";
 
 const PUBLIC_PAGE_PREFIXES = ["/landing", "/login", "/services", "/it-services"];
 const PUBLIC_API_PATHS = new Set([
@@ -35,7 +35,7 @@ function isProtectedApi(pathname: string) {
   return pathname.startsWith("/api/") && !isPublicApi(pathname);
 }
 
-export async function proxy(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (!isProtectedPage(pathname) && !isProtectedApi(pathname)) {
@@ -47,9 +47,18 @@ export async function proxy(req: NextRequest) {
   }
 
   const token = req.cookies.get("auth-token")?.value;
-  const user = token ? await verifyAuthToken(token) : null;
+  const user = token ? await verifyToken(token) : null;
 
   if (user) {
+    // Basic RBAC: Admin only paths
+    if (pathname.startsWith("/admin") && user.role !== "admin") {
+      if (pathname.startsWith("/api/")) {
+        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      }
+      const url = req.nextUrl.clone();
+      url.pathname = "/portal";
+      return NextResponse.redirect(url);
+    }
     return NextResponse.next();
   }
 
