@@ -112,6 +112,11 @@ model Order {
   payments      Payment[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+
+  // Operations Tracking
+  assignedWasherId String?
+  isQCPassed       Boolean @default(false)
+  rackLocation     String?
 }
 
 model OrderItem {
