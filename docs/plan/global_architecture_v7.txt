@@ -1,0 +1,52 @@
+# MASTER ARCHITECTURE v7.0: THE "ULTIMATE" FEDERATED ERP (QATAR)
+# Version: 7.0.0 (The Definitive Blueprint for GCC Operations)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL VISION
+================================================================================
+A massively-scaled, hyper-local ecosystem of 18+ web applications. v7.0 is designed for **Absolute Accountability**, **IoT Precision**, and **Unlimited Data Horizons**.
+
+Core Pillars:
+- **Tenant Sovereignty:** Row-Level Security (RLS) ensures absolute data firewalls between 100+ branches.
+- **Visual Evidence Chain:** 3-photo "Arrival Condition Capture" for all luxury items.
+- **Industrial IoT:** MQTT-driven chemical interlocks and dynamic energy load balancing.
+- **Data Perpetuity:** Cold-storage Parquet pipeline (MinIO) for infinite record keeping.
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Tenant Management:** PostgreSQL RLS (Row Level Security) + Custom Branch Middleware.
+- **Industrial Connectivity:** MQTT (Mosquitto) for machine telemetry & dosing interlocks.
+- **Storage Strategy:** Parquet (Archive) + MinIO (S3) + PostgreSQL (Hot).
+- **Proximity Handover:** Web Bluetooth API (Local Handshake) + Geofencing.
+- **Reliability:** Chaos Engineering (Ramadan Peak Simulation) + PITR (WAL-G).
+
+================================================================================
+3. FEDERATED MONOREPO ENHANCEMENTS (v7.0)
+================================================================================
+
+### A. ARRIVAL CONDITION CAPTURE (Visual Proof)
+- **Rule:** For items > 1,000 QAR, the Production portal forces 3 timestamped photos before the wash cycle is authorized.
+- **Visibility:** Photos are immediately available in the customer's "Track Order" portal to prevent damage disputes.
+
+### B. CHEMICAL & ENERGY INTERLOCKS
+- **IoT Safety:** Washing machines will not start unless the detergent barcode scan matches the Fabric Type (Silk/Cotton) in the DB.
+- **Monitoring:** Maintenance portal tracks real-time kWh per machine, flagging mechanical drift.
+
+### C. TRANSLATION MANAGEMENT (Weblate)
+- **Dynamic Arabic:** Admin portal features a direct JSON editor for Arabic labels, allowing instant updates to terminology without code deployment.
+
+### D. DIGITAL WARDROBE & PREFERENCES
+- **Intelligence:** System remembers "Fold don't hang" or "Heavy Starch" per garment type (Cotton Shirt vs. Silk Abaya).
+
+### E. COLD STORAGE PIPELINE
+- **Optimization:** Orders older than 2 years are moved to Parquet files. This keeps the primary database lean and maintains sub-100ms query times during peak Ramadan traffic.
+
+================================================================================
+4. OPERATIONAL SAFETY NETS
+================================================================================
+- **Digital Shift Log:** Mandatory handover notes between AM/PM managers with digital acknowledgment.
+- **Privilege Override:** Senior Admin can force a handover (logs mandatory incident report).
+- **Staff Sandbox:** Dedicated toggle in all 15 portals for risk-free training of new employees.
+- **SLA Breach Logic:** Automated WhatsApp escalation to Dept Heads for tickets > 24h old.

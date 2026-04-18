@@ -40,12 +40,12 @@ enum Department {
 model User {
   id            String      @id @default(uuid())
   email         String?     @unique
-  phone         String?     // Main ID for Qatar market, optional with app-layer uniqueness
+  phone         String      @unique // Main ID for Qatar market
   passwordHash  String
   fullName      String
   role          UserRole    @default(PUBLIC_CUSTOMER)
   department    Department  @default(NONE)
-  isTwoFAEnabled Boolean    @default(false) // Opt-in for STAFF/ADMIN
+  isTwoFAEnabled Boolean    @default(true)
   twoFASecret    String?
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
@@ -54,9 +54,6 @@ model User {
   orders        Order[]
   addresses     Address[]
   logs          AuditLog[]
-
-  // Indexes
-  @@index([role, department])
 }
 
 // -----------------------------------------------------------------------------

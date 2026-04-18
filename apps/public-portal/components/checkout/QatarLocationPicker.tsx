@@ -16,22 +16,6 @@ interface LocationPickerProps {
   onLocationSelect: (lat: number, lng: number) => void;
 }
 
-interface MapEventsProps {
-  onMapClick: (lat: number, lng: number) => void;
-}
-
-/**
- * Map click event handler component (extracted to module scope)
- */
-const MapEvents: React.FC<MapEventsProps> = ({ onMapClick }) => {
-  useMapEvents({
-    click(e) {
-      onMapClick(e.latlng.lat, e.latlng.lng);
-    },
-  });
-  return null;
-};
-
 /**
  * PRODUCTION-GRADE QATAR LOCATION PICKER (OSM/LEAFLET)
  * Captures coordinates for precise laundry pickups.
@@ -39,9 +23,14 @@ const MapEvents: React.FC<MapEventsProps> = ({ onMapClick }) => {
 export const QatarLocationPicker: React.FC<LocationPickerProps> = ({ onLocationSelect }) => {
   const [position, setPosition] = useState<[number, number]>([25.2854, 51.5310]); // Doha Center
 
-  const handleMapClick = (lat: number, lng: number) => {
-    setPosition([lat, lng]);
-    onLocationSelect(lat, lng);
+  const MapEvents = () => {
+    useMapEvents({
+      click(e) {
+        setPosition([e.latlng.lat, e.latlng.lng]);
+        onLocationSelect(e.latlng.lat, e.latlng.lng);
+      },
+    });
+    return null;
   };
 
   return (
@@ -56,7 +45,7 @@ export const QatarLocationPicker: React.FC<LocationPickerProps> = ({ onLocationS
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position} />
-        <MapEvents onMapClick={handleMapClick} />
+        <MapEvents />
       </MapContainer>
       <div style={{ padding: '10px', fontSize: '0.8rem', backgroundColor: '#f8f9fa', color: '#666' }}>
         * Click on the map to pin your exact pickup location in Qatar.
