@@ -1,0 +1,116 @@
+# GLOBAL ARCHITECTURE & SYSTEM DESIGN DOCUMENT
+# Project: Luxury Laundry & Dry Cleaning ERP (Qatar)
+# Version: 1.0.0
+# License: 100% Free & Open Source (MIT/Apache 2.0)
+
+================================================================================
+1. EXECUTIVE SUMMARY
+================================================================================
+This document outlines the architecture for a next-generation Laundry and Dry Cleaning management system. It combines a high-end luxury E-Commerce experience for public customers with a robust, modular ERP for internal operations.
+
+Key Pillars:
+- Modular "Plug-and-Play" design (Add/remove portals with zero side effects).
+- Distinct Visual Identities for 15+ departments.
+- Sci-Fi / Edex-UI inspired login for IT and Internal systems.
+- 100% FOSS technology stack (No licensing fees).
+- AI Agent integration for logistics, lead scoring, and customer support.
+- Qatar-specific localization (Zone/Street/Building, QPay abstraction, Arabic RTL).
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- Frontend: Next.js 15+ (App Router, Server Components)
+- Language: TypeScript (Strict mode, Zero-stub policy)
+- Database: PostgreSQL (Relational master)
+- ORM: Prisma (Type-safe database access)
+- State Management: Zustand (Decoupled store)
+- Styling: Tailwind CSS 4 + Framer Motion (Animations) + CSS Variables (Theming)
+- Maps: Leaflet.js + OpenStreetMap (No Google Maps API costs)
+- Localization: i18next (English & Arabic RTL)
+- AI Orchestration: LangGraph / CrewAI patterns (Local/Ollama-ready)
+- Authentication: Jose (JWT) + Bcrypt.js (Stateless & Secure)
+
+================================================================================
+3. SYSTEM ARCHITECTURE: THE MODULAR MONOREPO
+================================================================================
+We utilize a Monorepo structure for easy maintenance and code sharing while ensuring strict decoupling.
+
+Structure:
+/laundry-erp
+  ├── /apps
+  │   ├── /public-portal       # Next.js: Luxury B2C/B2B E-commerce
+  │   └── /internal-portals    # Next.js: Shared shell for 15+ Dept Portals
+  ├── /packages
+  │   ├── /db                  # Prisma schema & Shared Postgres Client
+  │   ├── /ui                  # Shared base components (Atomic Design)
+  │   ├── /logic               # Shared business rules (Pricing, Order States)
+  │   └── /agents              # AI Agent definitions (Logistics, Support)
+  └── /docs                    # Documentation & Setup guides
+
+Isolation Logic (Plug-and-Play):
+- Every department is a "Module".
+- Communication happens via a central "Event Bus" or "Interface Contract".
+- A "Registry" file controls which modules are active. To remove a module, delete one line in the registry.
+
+================================================================================
+4. THREE-TIER AUTHENTICATION & LOGIN FLOW
+================================================================================
+A. Public Portal Login (Elegant/Simple):
+   - Focus: Mobile Number + OTP/2FA.
+   - UX: Soft shadows, clean white/blue luxury theme.
+   - Separate flows for B2C (Residential) and B2B (Corporate).
+
+B. Internal Portal Login (Sci-Fi / Edex-UI Style):
+   - Features: Interactive terminal, scan-line effects, background ambient audio.
+   - UX: Dark mode, neon accents (Matrix Green for IT, Cyber Blue for Ops).
+   - 2FA is mandatory for all internal users.
+
+C. Department Selection:
+   - Post-login, users see a "Portal Selector".
+   - Permissions-based: Only authorized departments are selectable.
+   - Dynamic Theming: Selecting a portal injects a unique CSS variable set (Color/Layout).
+
+================================================================================
+5. INTERNAL DEPARTMENT PORTALS (15 DISTINCT THEMES)
+================================================================================
+| Department       | Theme / Color Scheme         | Primary AI Agent Role          |
+|------------------|------------------------------|--------------------------------|
+| Administration   | Executive (Navy/Steel)        | Security Audit & Logging       |
+| Sales            | Energetic (Gold/Orange)       | Lead Scoring & CRM Assistant   |
+| Marketing        | Vibrant (Pink/Purple)         | Content & Campaign Generator   |
+| Customer Service | Warm (Teal/White)             | Support Chatbot & Sentiment    |
+| Production       | Industrial (Grey/Yellow)      | QC & Scanning Automation       |
+| Operations       | Efficiency (Blue/Grid)        | Factory Workflow Optimizer     |
+| Transport        | Logistics (Dark/Amber)        | Route Optimization (Qatar TSP) |
+| Human Resource   | Trust (Green/Soft Blue)       | Recruitment Matcher            |
+| IT               | **Sci-Fi (Neon/Black)**       | System Health & Threat Monitor |
+| Maintenance      | Utility (Orange/Dark)         | Predictive Maintenance Alerts  |
+| Finance          | Audit (Deep Green/White)      | Automated Reconciliation       |
+| Business Dev     | Growth (Deep Blue/Gold)       | Market Trend Analyzer          |
+| Communications   | Social (Blue/Sky)             | Brand Voice Consistency        |
+| Security         | Watcher (Red/Black)           | Anomaly Detection              |
+| Housekeeping     | Clean (White/Cyan)            | Task Scheduler                 |
+
+================================================================================
+6. QATAR-SPECIFIC IMPLEMENTATIONS
+================================================================================
+- Address Module: Uses "Building - Street - Zone" schema mandatory in Qatar.
+- Map Integration: Leaflet-based pin drop saves GPS coordinates for drivers.
+- Payment Abstraction: A "Gateway Connector" allowing easy plug-in of QPay or Commercial Bank APIs without changing core code.
+- SMS/WhatsApp: Open-source abstraction layer for Twilio/Proprietary local gateways.
+
+================================================================================
+7. AI AGENT INTEGRATION (Inspired by 500-AI-Agents-Projects)
+================================================================================
+- Logistics Agent: Calculates optimal multi-drop routes using OpenStreetMap data.
+- Sales Lead Agent: Scores B2B inquiries based on hotel/corporate capacity.
+- IT Security Agent: Monitors login patterns for anomalies and enforces 2FA.
+- Customer Happiness Agent: Summarizes customer feedback into actionable insights for the Board.
+
+================================================================================
+8. INFRASTRUCTURE & SCALABILITY
+================================================================================
+- Development: Windows 11 (Node.js/Postgres).
+- Production: Ubuntu Linux VPS (Nginx reverse proxy, PM2 process management).
+- Zero Side Effects: Since logic is decoupled by interfaces, scaling the factory (Operations) has no impact on the Public E-commerce frontend.
+- Database: Unified PostgreSQL instance with multi-tenant schema capability.
