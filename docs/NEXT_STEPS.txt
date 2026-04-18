@@ -1,0 +1,66 @@
+# PROJECT ASSEMBLY & NEXT STEPS GUIDE
+# Laundry ERP & E-Commerce (Qatar)
+
+Following the delivery of the architecture and core modules, here is your roadmap to getting the system live and the recommended next steps for development.
+
+================================================================================
+1. IMMEDIATE NEXT STEPS (ASSEMBLY)
+================================================================================
+Since this is a new project, you should assemble the files provided in the following order:
+
+1.  **Initialize Monorepo Structure:**
+    Create the folders: `apps/public-portal`, `apps/internal-portals`, `packages/db`, `packages/logic`, `packages/ui`.
+
+2.  **Database Setup:**
+    - Place `packages/db/prisma/schema.prisma` in its folder.
+    - Run `npx prisma db push` to create the 15-department schema in your local PostgreSQL.
+
+3.  **Authentication & Logic:**
+    - Place `packages/logic/auth/auth-service.ts` into its folder.
+    - This provides the "Zero-Stub" JWT and Bcrypt logic used by all portals.
+
+4.  **Internal Portal Launch:**
+    - Deploy the `Navigator` (`apps/internal-portals/app/dashboard/page.tsx`) and the `SciFiLogin` component.
+    - This allows you to verify the Edex-UI aesthetic immediately.
+
+5.  **Public Portal Pickup Test:**
+    - Deploy the `OrderPage` and `QatarLocationPicker`.
+    - Verify that you can drop a pin on the map and capture coordinates for Doha/West Bay/Lusail.
+
+================================================================================
+2. DEVELOPMENT ROADMAP (MODULE-BY-MODULE)
+================================================================================
+As per our "Zero-Stub" agreement, the system is being built in batches.
+
+**Next Development Step:**
+I will proceed to implement **Batch B (Sales, Marketing, Customer Service)**.
+- **Sales:** Will include the B2B Corporate Contract management logic.
+- **Customer Service:** Will include a FOSS-based ticketing interface.
+- **Marketing:** Will include a Coupon/Loyalty points engine.
+
+**AI Agent Integration Step:**
+Following the department modules, I will integrate the **Logistics Optimization Agent** (using the principles from 500-AI-Agents-Projects) to automate driver assignments in the Transport portal.
+
+================================================================================
+3. PRODUCTION PREPARATION
+================================================================================
+1.  **Hosting:** Provision an Ubuntu 22.04 VPS (e.g., from a FOSS-friendly provider).
+2.  **Reverse Proxy:** Set up Nginx to handle the two different subdomains:
+    - `laundry.qa` -> Public Portal
+    - `erp.laundry.qa` -> Internal Portals
+3.  **Security:** Implement a VPN or IP-Whitelisting for the `internal.` subdomain to ensure the department portals are never exposed to the public internet.
+
+================================================================================
+4. SUMMARY OF ASSETS DELIVERED
+================================================================================
+- [x] Global Architecture Document (`global_architecture.txt`)
+- [x] Prisma Schema (15 Departments + Qatar Address System)
+- [x] Production Auth Service (JWT/Bcrypt)
+- [x] Sci-Fi Login UI (Edex-UI style)
+- [x] Public Order Flow + Qatar Map Picker (OSM)
+- [x] Internal Portal Navigator (Plug-and-Play Shell)
+- [x] IT, Transport, Finance, and Production Portal Core Logic
+- [x] Full Content Package (About, Services, SEO, Homepage)
+- [x] Visual Style Guide (Luxury/Modern)
+
+**Would you like me to proceed now with the full code for the "Sales" and "Marketing" modules, or would you like to focus on the AI Agent integration for Logistics first?**

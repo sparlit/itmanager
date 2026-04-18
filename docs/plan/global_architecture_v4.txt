@@ -1,0 +1,71 @@
+# MASTER ARCHITECTURE v4.0: THE "GRAND" LUXURY ERP (QATAR)
+# Version: 4.0.0 (The Definitive Standard)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL VISION
+================================================================================
+A world-class, multi-dimensional ecosystem designed for the pinnacle of luxury garment care in Qatar. v4.0 integrates **Revenue Retention (Subscriptions)**, **ESG Sustainability**, **Local Payment Realities (COD)**, and **Universal Accessibility (WCAG 2.1)**.
+
+The system serves three core actors:
+1. **Public/Corporate Customers** (E-Commerce & Subscriptions).
+2. **Internal Staff** (15+ Highly Specialized Dept Portals).
+3. **External Suppliers** (Dedicated Vendor Portal).
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Framework:** Next.js 15 (App Router) + PWA (Offline-First).
+- **Database:** PostgreSQL 16 + WAL-G (PITR) + MinIO (S3).
+- **Auth:** Jose (JWT) + TOTP MFA + Bcrypt.js.
+- **Accessibility:** WCAG 2.1 AA (Tailwind High-Contrast & Aria).
+- **Comms:** WhatsApp Business API + SMS Fallback.
+- **AI Agents:** LangGraph (Logistics, Sales, QC, Sustainability).
+- **Calendars:** Umm al-Qura (Hijri) + Gregorian Dual Support.
+- **DevOps:** GitHub Actions + Docker + PM2.
+- **Privacy:** AES-256 Field-Level Encryption.
+
+================================================================================
+3. EXTENDED MONOREPO STRUCTURE
+================================================================================
+/laundry-hq
+  ├── /apps
+  │   ├── /public-portal       # Luxury B2C (Subscriptions, ESG Metrics, Queue)
+  │   ├── /b2b-dashboard      # Corporate (White-labeled, Bulk Billing)
+  │   ├── /vendor-portal       # External Supplier PO & Invoice Management
+  │   └── /internal-erp       # 15 Departmental Portals (Unified Shell)
+  ├── /packages
+  │   ├── /db                 # Prisma Schema (Subs, ESG, COD, Queue models)
+  │   ├── /ui-core            # WCAG 2.1 AA UI Library (Standardized Icons/Grammar)
+  │   ├── /logic-subscriptions # Plan management, Auto-renewals, FUP logic
+  │   ├── /logic-payments     # QPay + COD Cash-Vault Reconciliation
+  │   ├── /logic-esg          # Sustainability Calculator (Water/Energy/Eco)
+  │   └── /agents             # AI Traffic, Lead, QC, and Restock Agents
+  └── /infrastructure         # WAL-G PITR, CI/CD, and Docker config
+
+================================================================================
+4. NEW CORE MODULES (v4.0)
+================================================================================
+
+### A. SUBSCRIPTION ENGINE (Revenue Retention)
+- **Features:** Plan creation (Gold/Platinum), usage limits (e.g. 50kg/month), and auto-renewal logic.
+- **Goal:** Shift from transactional to recurring revenue models.
+
+### B. ESG DASHBOARD (Sustainability)
+- **Metrics:** Water usage (Liters/kg), Energy (kWh/kg), and Eco-Detergent utilization.
+- **UI:** A "Green Badge" in the Public Portal and detailed internal reports for the Board.
+
+### C. COD HANDLER (Cash Management)
+- **Process:** Driver collects Cash -> Confirms in Mobile App -> At end-of-shift, Driver deposits cash in Branch Vault -> Finance reconciles digital vs. physical cash.
+- **Goal:** Zero leakage in physical payment handling.
+
+### D. VENDOR PORTAL (Supply Chain)
+- **Access:** Restricted to authorized suppliers (Detergent sellers, Hanger manufacturers).
+- **Features:** PO acknowledgement, Shipping status updates, and digital Invoice uploads.
+
+### E. VIRTUAL QUEUE & TOKEN SYSTEM
+- **Process:** Customer scans QR code -> Gets virtual ticket -> Real-time status in Public Portal.
+- **Goal:** Manage walk-in flow in high-end retail branches.
+
+### F. UNIVERSAL ACCESSIBILITY (WCAG 2.1)
+- **Rules:** High-contrast color pairs, 44x44px touch targets, full keyboard navigability, and `aria-label` semantic richness.

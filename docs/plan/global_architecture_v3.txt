@@ -1,0 +1,81 @@
+# MASTER ARCHITECTURE v3.0: THE "IRON-CLAD" LUXURY ERP (QATAR)
+# Version: 3.0.0 (Comprehensive & Resilient)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL VISION
+================================================================================
+A resilient, modular, and AI-driven ecosystem comprising 17+ standalone-style web applications. Designed for the high-end Qatar market, the system prioritizes **Disaster Recovery (PITR)**, **WhatsApp-First Communication**, **Strict MFA Security**, and **Dual-Calendar Support**.
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Framework:** Next.js 15 (App Router) + PWA (Offline-First).
+- **Database:** PostgreSQL 16 + WAL-G (for PITR) + MinIO (S3-Storage).
+- **Auth:** Jose (JWT) + TOTP MFA (Multi-Factor) + Bcrypt.js.
+- **Comms:** WhatsApp Business API (via generic abstraction) + SMS Fallback.
+- **AI Agents:** LangGraph / CrewAI for Logistics, Sales, and QC.
+- **Calendars:** Umm al-Qura (Hijri) + Gregorian Dual Support.
+- **DevOps:** GitHub Actions / GitLab CI + Docker + PM2.
+- **Privacy:** AES-256 Field-Level Encryption (Prisma Middleware).
+
+================================================================================
+3. CORE REPOSITORY STRUCTURE (MONOREPO)
+================================================================================
+/laundry-hq
+  ├── /apps
+  │   ├── /public-portal       # Luxury B2C (Hijri Promotions, WhatsApp Login)
+  │   ├── /b2b-dashboard      # Corporate (White-labeled, Bulk Invoicing)
+  │   └── /internal-erp       # 15 Departmental Portals (Unified Shell)
+  ├── /packages
+  │   ├── /db                 # Prisma Schema + Encryption + WAL-G Config
+  │   ├── /ui-core            # UX Grammar Library (Standardized UI)
+  │   ├── /logic-auth         # MFA (TOTP) + 3-Tier JWT Logic
+  │   ├── /logic-comms        # WhatsApp/SMS Abstraction Layer
+  │   ├── /logic-calendar     # Gregorian/Hijri Dual-Sync Utility
+  │   ├── /logic-claims       # Claims & Dispute Resolution Engine
+  │   └── /agents             # AI Traffic, Lead, and QC Agents
+  └── /infrastructure
+      ├── /docker             # Production Dockerfiles
+      └── /ci-cd              # GitHub Actions Workflow definitions
+
+================================================================================
+4. THE 15+ "STANDALONE" PORTAL BLUEPRINTS
+================================================================================
+Every department portal follows the **UX Grammar** (standardized layout) while maintaining a unique **Visual Signature**.
+
+- **IT (Sci-Fi):** System Health, WAL-G Backup Status, CI/CD Pipeline Monitor.
+- **Finance (Audit):** Claims Processing, QPay Sync, Hijri-based Tax periods.
+- **Transport (Logistics):** OSRM Traffic Agent, **Proof of Attempt (Photo/GPS)**.
+- **Production (Industrial):** YOLOv8 QC, Offline-First PWA scanning.
+- **HR (Human):** **Hijri Holiday Planner**, Biometric Attendance Sync, MFA Auth.
+- **Admin (Executive):** Disaster Recovery (PITR) Restore Tool, Dispute Overrides.
+- **Sales (Corporate):** AI Lead Scoring, Ramadan Promotion Builder.
+
+================================================================================
+5. MISSION-CRITICAL WORKFLOWS
+================================================================================
+
+### A. DISASTER RECOVERY (PITR)
+- **Engine:** WAL-G continuously streams PostgreSQL Write-Ahead Logs to a local MinIO bucket.
+- **Capability:** In the event of a "Midnight Crash," the Admin can restore the DB to a state within seconds of the failure.
+
+### B. WHATSAPP-FIRST COMMUNICATION
+- **Event:** `Order.status === 'READY_FOR_DELIVERY'`.
+- **Action:** Comms Layer sends a WhatsApp message with a live tracking link.
+- **Fallback:** If WhatsApp API returns an error, the system automatically sends a standard SMS.
+
+### C. CLAIMS & LIABILITY MANAGEMENT
+- **Workflow:** Customer initiates a claim via Public Portal -> "Claims Module" alerts Admin -> Admin reviews Production/QC logs for that Item -> Compensation (Credit/Refund) is authorized -> Finance logs the loss.
+
+### D. DELIVERY FAILURE (PROOF OF ATTEMPT)
+- **Action:** Driver arrives at location. Customer is absent.
+- **Process:** Driver takes a photo of the building and tags geolocation.
+- **Notification:** Triggered to customer: "We missed you! [Photo Link] Click here to reschedule."
+
+================================================================================
+6. QATAR COMPLIANCE & LOCALIZATION
+================================================================================
+- **PII Protection:** Field-level encryption for all Qatari mobile numbers and addresses.
+- **Dual Calendars:** All date pickers support toggling between Gregorian and Hijri (Official Qatari Moon Sighting).
+- **Payment:** Abstracted gateway layer for QPay and local Qatari bank integrations.

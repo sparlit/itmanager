@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pristine Perfection | Luxury Laundry & Dry Cleaning Qatar</title>
+    <!-- FOSS Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* BASE STYLES */
+        :root {
+            --primary: #1A365D;
+            --secondary: #EBF8FF;
+            --accent: #D4AF37;
+            --text: #2D3748;
+            --white: #ffffff;
+            --spacing-unit: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 3);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #2A4365;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: var(--secondary);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: #fdfdfd;
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-block {
+            padding: 24px;
+            background: var(--white);
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-block p {
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT CTA */
+        .contact-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .contact-cta p {
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <h1>Pristine Perfection Delivered.</h1>
+            <p>Qatar’s premier luxury laundry service. We handle the cleaning, so you can handle the important things. Free pickup and delivery across Doha.</p>
+            <a href="#" class="btn">Schedule My Free Pickup</a>
+        </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Qatar Chooses Pristine</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Reclaim Your Time</h3>
+                    <p>Stop spending weekends on laundry. Our expert team handles everything, returning your clothes crisp and ready to wear.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Wardrobe Longevity</h3>
+                    <p>Delicate fibers require expert care. Our eco-friendly FOSS-monitored cleaning preserves your finest garments for years.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Corporate Confidence</h3>
+                    <p>Look your absolute best. Our professional pressing ensures you walk into every meeting with flawless, crisp attire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-block">
+                    <p>"The best dry cleaning service in Doha. My evening gowns come back looking brand new every time."</p>
+                    <div class="testimonial-author">Sarah A. - West Bay</div>
+                </div>
+                <div class="testimonial-block">
+                    <p>"Extremely professional. Their corporate pickup service for our hotel has been a game changer for our operations."</p>
+                    <div class="testimonial-author">Director of Ops - Luxury Doha Hotel</div>
+                </div>
+                <div class="testimonial-block">
+                    <p>"Fast, reliable, and the app makes it so easy to track my orders. Highly recommended!"</p>
+                    <div class="testimonial-author">Mohammed K. - Lusail</div>
+                </div>
+                <div class="testimonial-block">
+                    <p>"The only place I trust with my traditional wear. The pressing is absolutely perfect."</p>
+                    <div class="testimonial-author">Ahmed M. - Al Waab</div>
+                </div>
+                <div class="testimonial-block">
+                    <p>"Great service, friendly staff, and the free delivery is always on time. 5 stars!"</p>
+                    <div class="testimonial-author">Elena R. - The Pearl</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Experience the Pristine Difference Today</h2>
+            <p>Join thousands of satisfied customers and corporate partners across Qatar.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn">Order Residential</a>
+                <a href="#" class="btn btn-outline">Corporate Inquiries</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

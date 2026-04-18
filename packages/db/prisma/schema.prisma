@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------------------------
+// CORE AUTH & USER MODELS
+// -----------------------------------------------------------------------------
+
+enum UserRole {
+  PUBLIC_CUSTOMER
+  CORPORATE_CLIENT
+  STAFF
+  ADMIN
+}
+
+enum Department {
+  ADMINISTRATION
+  SALES
+  MARKETING
+  CUSTOMER_SERVICE
+  PRODUCTION
+  OPERATIONS
+  TRANSPORT
+  HUMAN_RESOURCE
+  INFORMATION_TECHNOLOGY
+  MAINTENANCE
+  FINANCE
+  BUSINESS_DEVELOPMENT
+  COMMUNICATIONS
+  SECURITY
+  HOUSEKEEPING
+  NONE
+}
+
+model User {
+  id            String      @id @default(uuid())
+  email         String?     @unique
+  phone         String      @unique // Main ID for Qatar market
+  passwordHash  String
+  fullName      String
+  role          UserRole    @default(PUBLIC_CUSTOMER)
+  department    Department  @default(NONE)
+  isTwoFAEnabled Boolean    @default(true)
+  twoFASecret    String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // Relations
+  orders        Order[]
+  addresses     Address[]
+  logs          AuditLog[]
+}
+
+// -----------------------------------------------------------------------------
+// GEOGRAPHIC / QATAR ADDRESS MODELS
+// -----------------------------------------------------------------------------
+
+model Address {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  label       String   // e.g., "Home", "Office"
+  zone        String   // Qatar Zone
+  street      String   // Qatar Street
+  building    String   // Qatar Building
+  unitNumber  String?
+  landmark    String?
+  latitude    Float?
+  longitude   Float?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+// -----------------------------------------------------------------------------
+// E-COMMERCE & ERP MODELS
+// -----------------------------------------------------------------------------
+
+enum OrderStatus {
+  PENDING
+  PICKUP_SCHEDULED
+  PICKED_UP
+  IN_FACTORY
+  WASHING
+  DRYING
+  IRONING
+  READY_FOR_DELIVERY
+  OUT_FOR_DELIVERY
+  DELIVERED
+  CANCELLED
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  orderNumber   String      @unique // Human readable e.g., PRN-10001
+  customerId    String
+  customer      User        @relation(fields: [customerId], references: [id])
+  status        OrderStatus @default(PENDING)
+  totalAmount   Float
+  currency      String      @default("QAR")
+
+  // Schedule
+  pickupDate    DateTime
+  deliveryDate  DateTime?
+
+  // Relations
+  items         OrderItem[]
+  payments      Payment[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // Operations Tracking
+  assignedWasherId String?
+  isQCPassed       Boolean @default(false)
+  rackLocation     String?
+}
+
+model OrderItem {
+  id          String   @id @default(uuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id])
+  serviceName String   // e.g., "Washing & Pressing"
+  category    String   // e.g., "Men's Shirt"
+  quantity    Int
+  unitPrice   Float
+}
+
+model Payment {
+  id            String   @id @default(uuid())
+  orderId       String
+  order         Order    @relation(fields: [orderId], references: [id])
+  amount        Float
+  method        String   // e.g., "CASH", "CARD_ON_DELIVERY", "QPAY"
+  transactionId String?
+  status        String   // e.g., "COMPLETED", "FAILED"
+  createdAt     DateTime @default(now())
+}
+
+// -----------------------------------------------------------------------------
+// SYSTEM & AUDIT
+// -----------------------------------------------------------------------------
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  action      String   // e.g., "LOGIN", "UPDATE_ORDER_STATUS"
+  module      String   // e.g., "IT_PORTAL", "PUBLIC_WEB"
+  details     Json?
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+}

@@ -1,0 +1,44 @@
+name: PRISTINE_LAUNDRY_CI_CD
+
+on:
+  push:
+    branches: [ main, production ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Lint & Typecheck
+        run: npm run validate
+
+      - name: Run Vitest Tests
+        run: npm run test:run
+
+  deploy-to-production:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Qatar VPS via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/laundry-hq
+            git pull origin production
+            npm install
+            npx prisma db push
+            npm run build
+            pm2 restart all

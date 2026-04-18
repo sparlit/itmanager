@@ -1,0 +1,72 @@
+# MASTER ARCHITECTURE v5.0: THE "IRON-CLAD" FEDERATED ERP (QATAR)
+# Version: 5.0.0 (The Final Standard for Operational Excellence)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL VISION
+================================================================================
+A massively-parallel, federated ecosystem of 18+ standalone-style web applications. v5.0 is designed for **Zero-Loss Operations**, **Offline Resilience**, and **Real-Time Synergy**.
+
+Key Breakthroughs:
+- **Custody Integrity:** Dual-Scan & Geofencing for the "Handover Loophole."
+- **Data Durability:** Encrypted Offline Storage (IndexedDB) with Redis Write-Buffering.
+- **Cognitive Cohesion:** Unified UX Grammar & Integrated Inter-Dept Messenger.
+- **Deep Localization:** Dynamic RTL UI reflow and dual Hijri/Gregorian engines.
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Core:** Next.js 15 (App Router) + Workbox.js (Advanced PWA).
+- **Backend Infrastructure:** PostgreSQL 16 (Master) + Redis (Write-Buffer & Cache).
+- **Communication:** Socket.io (Internal Chat) + WhatsApp/SMS Abstraction.
+- **Security:** Jose (JWT) + TOTP MFA + Web Crypto API (SubtleCrypto).
+- **Analytics & Vision:** YOLOv8 (QC) + LangGraph AI Agents.
+- **DevOps:** GitHub Actions + Docker + PM2 + WAL-G (PITR).
+
+================================================================================
+3. FEDERATED MONOREPO STRUCTURE
+================================================================================
+/laundry-empire
+  ├── /apps
+  │   ├── /public-portal       # B2C (LTR/RTL, Subscriptions, Preferences)
+  │   ├── /b2b-dashboard      # B2B (Asset Tracking, White-labeling)
+  │   ├── /vendor-portal       # External Supply Chain
+  │   └── /internal-erp       # 15+ Dept Portals (Unified Shell, Sandbox Mode)
+  ├── /packages
+  │   ├── /db                 # Prisma + Encryption + Audit Logging
+  │   ├── /ui-core            # WCAG 2.1 AA + RTL Support + UX Grammar
+  │   ├── /logic-sync         # IndexedDB Encryption + Redis Buffer Logic
+  │   ├── /logic-logistics    # Dual-Scan + Route Optimizer + Geofencing
+  │   ├── /logic-comms        # Unified Notification Center + WebSocket Chat
+  │   ├── /logic-esg          # Sustainability Calculator
+  │   └── /agents             # AI Orchestration (Traffic, Lead, QC, Maintenance)
+  └── /infrastructure         # CI/CD, PITR, and Docker Orchestration
+
+================================================================================
+4. OPERATIONAL SAFETY PROTOCOLS (v5.0)
+================================================================================
+
+### A. DUAL-SCAN CUSTODY TRANSFER (The Handover Patch)
+- **Protocol:** To move an item from `DRIVER` to `FACTORY`, both must scan the Bag ID.
+- **Validation:** Verification of 10-meter geofence proximity (via Wi-Fi/GPS) before the transfer is committed to the DB.
+- **Override:** Senior Admins can trigger a "Privilege Override" (logged as an incident).
+
+### B. OFFLINE-FIRST ARCHITECTURE (Resilience)
+- **Strategy:** Workbox.js captures all scans/data in `IndexedDB`.
+- **Security:** Data is encrypted via **SubtleCrypto** using a session-derived key before storage.
+- **Sync:** Background workers flush data to a **Redis Write-Buffer** once online, which is then batched into PostgreSQL.
+
+### C. UNIFIED NOTIFICATION CENTER (The "Unified Inbox")
+- **Frontend:** A centralized Bell Icon in the global header.
+- **Abstraction:** Routes alerts to WhatsApp, SMS, Email, or In-App based on user `NotificationPreferences`.
+
+### D. DEEP RTL ARCHITECTURE
+- **Technical:** `tailwind-rtl` + Direction Context. All UI elements (shadows, padding, icons) physically flip for the Arabic locale.
+
+================================================================================
+5. DEPARTMENTAL ENHANCEMENTS (v5.0)
+================================================================================
+- **IT Portal:** Includes "IT Asset Register" (RFID) and "Sandbox Mode" for training.
+- **Finance Portal:** Handles "Driver Expense Management" and subscription FUP monitoring.
+- **Public Portal:** Features a "Notification Preference Center" and "Green Dashboard".
+- **B2B Portal:** Includes "RFID Asset Tracking" and "Discrepancy Reports" for hotel linens.

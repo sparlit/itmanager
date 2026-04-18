@@ -1,0 +1,62 @@
+# MASTER ARCHITECTURE v6.0: THE "SUPREME" FEDERATED ERP (QATAR)
+# Version: 6.0.0 (The Global Standard for Industrial Garment Care)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL VISION
+================================================================================
+A hyper-resilient, multi-tenant ecosystem of 18+ web applications. v6.0 introduces **Physical-Digital Interlocks**, **Conflict-Free Replication**, and **Deep Multi-Branch Isolation**.
+
+Core Pillars:
+- **Tenant Integrity:** Row-Level Security (RLS) ensures absolute data separation between branches.
+- **Physics-Aware Handover:** Bluetooth LE + Geofencing to solve the high-rise GPS drift.
+- **Operational Interlock:** Barcode matching for chemical safety and machine authorization.
+- **Infinite Data Strategy:** Cold-storage pipeline to keep the primary DB hyper-fast.
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Conflict Resolution:** LWW-Element-Set (CRDT) via custom Sync Service.
+- **Infrastructure:** Postgres 16 (Master) + Redis (Write-Buffer & Rate Limiting).
+- **IoT:** MQTT for Smart Meters and Chemical Dispensers.
+- **Mobile Handshake:** Web Bluetooth API (for Proximity Token Exchange).
+- **DevOps:** GitHub Actions + Chaos Engineering (Ramadan Load Simulation).
+- **BI & Analytics:** Metabase/Superset integration for Board Reporting.
+
+================================================================================
+3. ADVANCED MODULES & FLOWS (v6.0)
+================================================================================
+
+### A. CRDT OFFLINE SYNC (The Conflict Patch)
+- **Logic:** Each scan/edit gets a high-resolution timestamp. The Sync Engine merges data from multiple offline staff using "Last-Write-Wins" logic at the element level.
+
+### B. COUTURE VALUATION INSURANCE
+- **Checkout:** Customers can opt-in for luxury insurance for high-value items (Abayas, Thobes).
+- **Claim Link:** Integrated directly into the **Claims Module** with automated valuation tables.
+
+### C. THE "DIGITAL WARDROBE"
+- **UX:** Customer profiles store garment-specific preferences (e.g. "Cotton Shirts -> Light Starch, Folded").
+- **Automation:** These preferences are pushed to the Production Portal "Job Card" automatically.
+
+### D. CHEMICAL & MACHINE INTERLOCK
+- **Safety:** The industrial washer will not start unless the Production Portal confirms a barcode match between the garment batch and the detergent bottle.
+
+### E. SHIFT HANDOVER PROTOCOL
+- **Compliance:** Shift Managers must complete a "Digital Handover Note". Incoming managers must acknowledge before the portal unlocks.
+
+### F. DATA ARCHIVAL PIPELINE
+- **Strategy:** Automated cron job moves closed transaction logs > 90 days from `public` schema to `archive` Parquet files in MinIO.
+
+================================================================================
+4. FEDERATED PORTAL UPDATES (v6.0)
+================================================================================
+- **IT Portal:** Added "Sandbox Training Mode" and "Backup Integrity Monitor".
+- **Marketing:** Added "Influencer ROI Engine" and "Ramadan Peak Simulator".
+- **Maintenance:** Added "Energy/Water IoT Dashboard" and "Sanitation Logs".
+- **Finance:** Added "Driver Petty Cash Tracker" and "Subscription FUP Dashboard".
+- **Admin:** Added "Service Availability Matrix" (Enable/Disable services per branch).
+
+================================================================================
+5. ACCESSIBILITY & INCLUSION
+- **Visuals:** All status colors (Red/Green/Yellow) are paired with unique patterns (Stripes/Crosses) for color-blind staff.
+- **WCAG:** Strictly enforced 2.1 AA via standardized `ui-core` component wrappers.
