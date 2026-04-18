@@ -1,0 +1,93 @@
+# REWRITTEN MASTER ARCHITECTURE: LUXURY LAUNDRY ERP & E-COMMERCE (QATAR)
+# Version: 2.0.0 (Unified & Enhanced)
+# License: 100% Free & Open Source (FOSS)
+
+================================================================================
+1. ARCHITECTURAL PHILOSOPHY
+================================================================================
+The system is built as a "Federated Monorepo"—a collection of 17+ standalone-style web applications (1 Public E-Com, 1 B2B Dashboard, 15 Internal Departments) that share a common "Heart" (Database & Logic) but possess unique "Skins" (UIs) and "Brains" (AI Agents).
+
+Core Principles:
+- **Plug-and-Play:** Modules are fully decoupled. Adding or removing a department portal has zero effect on others.
+- **Offline-First (PWA):** Critical production and transport apps work without internet, syncing via background workers.
+- **Privacy-by-Design:** Qatar Law No. 13 compliance through field-level encryption.
+- **UX Grammar:** Standardized functional positioning (icons, buttons, alerts) across all 15 distinct visual themes.
+
+================================================================================
+2. TECHNOLOGY STACK (100% FOSS)
+================================================================================
+- **Framework:** Next.js 15 (App Router) with PWA support (Serwist/Next-PWA).
+- **Language:** TypeScript (Strict Mode).
+- **Database:** PostgreSQL + Prisma with Field-Level Encryption Middleware.
+- **Styling:** Tailwind CSS 4 + Framer Motion (Sci-Fi & Luxury animations).
+- **Maps:** Leaflet.js + OpenStreetMap + OSRM (Open Source Routing Machine).
+- **AI Agents:** LangGraph & CrewAI (adapted from 500-AI-Agents-Projects).
+- **Computer Vision:** YOLOv8 (FOSS) for AI Stain Detection via WebGL.
+- **State:** Zustand with Persistence (for offline states).
+
+================================================================================
+3. SYSTEM STRUCTURE (THE MONOREPO)
+================================================================================
+/laundry-hq
+  ├── /apps
+  │   ├── /public-ecommerce    # Luxury B2C Portal (Next.js)
+  │   ├── /b2b-dashboard      # White-labeled Corporate Portal (Next.js)
+  │   └── /internal-erp       # Unified Shell for 15 Departmental Apps
+  ├── /packages
+  │   ├── /db                 # Prisma Schema + Encryption Layer + Seeders
+  │   ├── /ui-core            # "UX Grammar" Library (Standardized Icons/Buttons)
+  │   ├── /logic-auth         # 3-Tier Auth (Elegant, Sci-Fi, Dept-Specific)
+  │   ├── /logic-inventory    # Procurement & Consumables Engine
+  │   ├── /agents             # AI Orchestration (Traffic, Support, Sales Agents)
+  │   └── /cv-models          # YOLOv8 models for Stain Detection
+  └── /gateway                # Open-source abstraction for QPay/SMS/WhatsApp
+
+================================================================================
+4. THE 15 DEPARTMENTAL WEB APPLICATIONS
+================================================================================
+Each portal is a standalone-style app within the `/internal-erp` shell.
+
+| Department | Visual Identity | Primary FOSS AI Agent Integration |
+| :--- | :--- | :--- |
+| **Administration** | Executive Minimalist | System Audit & Anomaly Detection Agent |
+| **IT** | **Sci-Fi / Edex-UI** | Security Threat & API Monitor Agent |
+| **Operations** | Industrial Blueprint | Workflow Optimizer & Capacity Agent |
+| **Production** | Utility (PWA) | **YOLOv8 AI Stain Detection Agent** |
+| **Transport** | Night Nav (PWA) | **Doha Traffic Intelligence Agent (OSRM)** |
+| **Finance** | Audit Professional | Automated Reconciliation & Tax Agent |
+| **Sales** | Dynamic Corporate | **Lead Scoring & B2B Quoting Agent** |
+| **Marketing** | Creative Editorial | Campaign & Loyalty Generation Agent |
+| **Customer Service** | Serene & Helpful | **Sentiment Analysis & Support Agent** |
+| **HR** | Structured Human | Recruitment Matcher & Payroll Agent |
+| **Maintenance** | Technical Rugged | Predictive Maintenance Alert Agent |
+| **Business Dev** | Visionary / Purple | Market Trend & Expansion Analyst Agent |
+| **Communications** | Social / Sky Blue | Brand Voice & Internal News Agent |
+| **Security** | The Watcher / Red | Visual Anomaly & Access Control Agent |
+| **Housekeeping** | Fresh & Clean | Supply Inventory & Task Agent |
+
+================================================================================
+5. CRITICAL ENHANCEMENTS & LOOP-HOLE PATCHES
+================================================================================
+- **Procurement Module:** Integrated into 'Maintenance' and 'Operations' to track chemical/detergent levels. Prevents "Supply Bottlenecks."
+- **Privacy Layer:** Middleware that encrypts 'phone' and 'address' fields in Postgres. Only authorized portals (CS, Transport, Admin) hold the decryption keys.
+- **UX Grammar:** A shared design language where:
+    - Primary actions are always Bottom-Right.
+    - Global notifications are always Top-Center.
+    - System health is always Bottom-Left.
+- **B2B White-Labeling:** The `b2b-dashboard` app allows corporate clients (e.g., Hilton) to see their own logos and high-volume contract data.
+
+================================================================================
+6. QATAR LOCALIZATION & COMPLIANCE
+================================================================================
+- **Address System:** Native support for Qatar Building-Street-Zone identifiers.
+- **Language:** Dual-path routing (English/Arabic) with RTL support in the Public Portal.
+- **Currency:** QAR-first with local bank gateway abstraction.
+- **Traffic Intelligence:** Custom AI agent using OpenStreetMap data to predict congestion in Doha zones during peak hours.
+
+================================================================================
+7. DEPLOYMENT & SCALABILITY
+================================================================================
+- **Development:** Windows 11 + VS Code.
+- **Testing:** Vitest + Playwright (FOSS).
+- **Production:** Ubuntu 22.04 LTS VPS with PM2 and Nginx.
+- **Performance:** Incremental builds via Turborepo ensures 15+ apps build in seconds.
