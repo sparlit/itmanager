@@ -1,3 +1,5 @@
+import { EXTENDED_DEPARTMENT_THEMES } from "./extended-themes";
+
 export interface ThemeConfig {
   primary: string;
   secondary: string;
@@ -9,33 +11,7 @@ export interface ThemeConfig {
 }
 
 export const DEPARTMENT_THEMES: Record<string, ThemeConfig> = {
-  administration: {
-    primary: "#0F172A",
-    secondary: "#64748B",
-    accent: "#3B82F6",
-    background: "#F8FAFC",
-    foreground: "#020617",
-    fontFamily: "sans",
-    visualEffects: "minimal",
-  },
-  it: {
-    primary: "#00FF41",
-    secondary: "#003B00",
-    accent: "#008F11",
-    background: "#0D0208",
-    foreground: "#00FF41",
-    fontFamily: "mono",
-    visualEffects: "sci-fi",
-  },
-  production: {
-    primary: "#D97706",
-    secondary: "#451A03",
-    accent: "#F59E0B",
-    background: "#FFFBEB",
-    foreground: "#78350F",
-    fontFamily: "sans",
-    visualEffects: "industrial",
-  },
+  ...EXTENDED_DEPARTMENT_THEMES,
   default: {
     primary: "#2563EB",
     secondary: "#64748B",

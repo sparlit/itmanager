@@ -82,4 +82,13 @@ export const EXTENDED_DEPARTMENT_THEMES: Record<string, ThemeConfig> = {
     fontFamily: "mono",
     visualEffects: "sci-fi",
   },
+  housekeeping: {
+    primary: "#06B6D4",
+    secondary: "#22D3EE",
+    accent: "#67E8F9",
+    background: "#F0FDFA",
+    foreground: "#083344",
+    fontFamily: "sans",
+    visualEffects: "minimal",
+  },
 };
