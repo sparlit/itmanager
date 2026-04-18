@@ -1,17 +1,125 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 
 /**
  * IT DEPARTMENT PORTAL (SCI-FI THEME)
  */
 export default function ITPortal() {
+  const [loading, setLoading] = useState<string | null>(null);
+  const [hasPermission] = useState(true); // TODO: Replace with actual auth/session check
+
   const stats = [
     { label: "Server Load", value: "24%", color: "#00FF41" },
     { label: "Active Nodes", value: "12/12", color: "#00FF41" },
     { label: "Database Ping", value: "14ms", color: "#00FF41" },
     { label: "Security Status", value: "OPTIMAL", color: "#00FF41" }
   ];
+
+  const handleRebootModuleBus = async () => {
+    if (!hasPermission) return;
+
+    if (!confirm('CONFIRM: REBOOT_MODULE_BUS? This will restart all application modules.')) {
+      return;
+    }
+
+    setLoading('reboot');
+    try {
+      const response = await fetch('/api/it/reboot-module-bus', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) throw new Error('Reboot failed');
+
+      // Record audit event
+      await fetch('/api/audit/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'REBOOT_MODULE_BUS',
+          module: 'IT_PORTAL',
+          details: { timestamp: new Date().toISOString() }
+        })
+      });
+
+      alert('MODULE_BUS reboot initiated successfully');
+    } catch (error) {
+      alert('ERROR: Reboot failed - ' + (error as Error).message);
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  const handleFlushRedisCache = async () => {
+    if (!hasPermission) return;
+
+    if (!confirm('CONFIRM: FLUSH_REDIS_CACHE? This will clear all cached data.')) {
+      return;
+    }
+
+    setLoading('flush');
+    try {
+      const response = await fetch('/api/it/flush-redis-cache', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) throw new Error('Cache flush failed');
+
+      // Record audit event
+      await fetch('/api/audit/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'FLUSH_REDIS_CACHE',
+          module: 'IT_PORTAL',
+          details: { timestamp: new Date().toISOString() }
+        })
+      });
+
+      alert('REDIS_CACHE flushed successfully');
+    } catch (error) {
+      alert('ERROR: Cache flush failed - ' + (error as Error).message);
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  const handleInitSecurityScan = async () => {
+    if (!hasPermission) return;
+
+    if (!confirm('CONFIRM: INIT_SECURITY_SCAN? This will initiate a full security audit.')) {
+      return;
+    }
+
+    setLoading('scan');
+    try {
+      const response = await fetch('/api/it/init-security-scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) throw new Error('Security scan failed');
+
+      // Record audit event
+      await fetch('/api/audit/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'INIT_SECURITY_SCAN',
+          module: 'IT_PORTAL',
+          details: { timestamp: new Date().toISOString() }
+        })
+      });
+
+      alert('SECURITY_SCAN initiated successfully');
+    } catch (error) {
+      alert('ERROR: Security scan failed - ' + (error as Error).message);
+    } finally {
+      setLoading(null);
+    }
+  };
 
   return (
     <div style={{
@@ -49,9 +157,63 @@ export default function ITPortal() {
         <div style={{ border: '1px solid #00FF41', padding: '1.5rem' }}>
           <h3>QUICK_ACTIONS</h3>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '1rem' }}><button style={{ background: 'transparent', color: '#00FF41', border: '1px solid #00FF41', width: '100%', padding: '0.5rem', cursor: 'pointer' }}>REBOOT_MODULE_BUS</button></li>
-            <li style={{ marginBottom: '1rem' }}><button style={{ background: 'transparent', color: '#00FF41', border: '1px solid #00FF41', width: '100%', padding: '0.5rem', cursor: 'pointer' }}>FLUSH_REDIS_CACHE</button></li>
-            <li style={{ marginBottom: '1rem' }}><button style={{ background: 'transparent', color: '#00FF41', border: '1px solid #00FF41', width: '100%', padding: '0.5rem', cursor: 'pointer' }}>INIT_SECURITY_SCAN</button></li>
+            <li style={{ marginBottom: '1rem' }}>
+              <button
+                onClick={handleRebootModuleBus}
+                disabled={!hasPermission || loading === 'reboot'}
+                aria-disabled={!hasPermission}
+                title={!hasPermission ? 'Insufficient permissions' : ''}
+                style={{
+                  background: 'transparent',
+                  color: hasPermission ? '#00FF41' : '#666',
+                  border: `1px solid ${hasPermission ? '#00FF41' : '#666'}`,
+                  width: '100%',
+                  padding: '0.5rem',
+                  cursor: hasPermission ? 'pointer' : 'not-allowed',
+                  opacity: loading === 'reboot' ? 0.6 : 1
+                }}
+              >
+                {loading === 'reboot' ? 'REBOOTING...' : 'REBOOT_MODULE_BUS'}
+              </button>
+            </li>
+            <li style={{ marginBottom: '1rem' }}>
+              <button
+                onClick={handleFlushRedisCache}
+                disabled={!hasPermission || loading === 'flush'}
+                aria-disabled={!hasPermission}
+                title={!hasPermission ? 'Insufficient permissions' : ''}
+                style={{
+                  background: 'transparent',
+                  color: hasPermission ? '#00FF41' : '#666',
+                  border: `1px solid ${hasPermission ? '#00FF41' : '#666'}`,
+                  width: '100%',
+                  padding: '0.5rem',
+                  cursor: hasPermission ? 'pointer' : 'not-allowed',
+                  opacity: loading === 'flush' ? 0.6 : 1
+                }}
+              >
+                {loading === 'flush' ? 'FLUSHING...' : 'FLUSH_REDIS_CACHE'}
+              </button>
+            </li>
+            <li style={{ marginBottom: '1rem' }}>
+              <button
+                onClick={handleInitSecurityScan}
+                disabled={!hasPermission || loading === 'scan'}
+                aria-disabled={!hasPermission}
+                title={!hasPermission ? 'Insufficient permissions' : ''}
+                style={{
+                  background: 'transparent',
+                  color: hasPermission ? '#00FF41' : '#666',
+                  border: `1px solid ${hasPermission ? '#00FF41' : '#666'}`,
+                  width: '100%',
+                  padding: '0.5rem',
+                  cursor: hasPermission ? 'pointer' : 'not-allowed',
+                  opacity: loading === 'scan' ? 0.6 : 1
+                }}
+              >
+                {loading === 'scan' ? 'SCANNING...' : 'INIT_SECURITY_SCAN'}
+              </button>
+            </li>
           </ul>
         </div>
       </div>
